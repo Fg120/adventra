@@ -55,91 +55,99 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">Register</h3>
                     <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nama Awal *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <form action="#" method="POST">
+                        <form action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="firstname" class="form-control"
+                                        placeholder="Nama Awal *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" placeholder="Email *"
+                                        value="" />
+                                </div>
+                                @error('email')
+                                    <div class="text-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+
                                     <label for="exampleFormControlSelect1">Provinsi</label>
                                     <select class="form-control" id="provinsi">
-                                        <option class="hidden" selected disabled>Please Select Your Provinsi</option>
+                                        <option name="provinsi" class="hidden" selected disabled>Please Select Your
+                                            Provinsi
+                                        </option>
                                     </select>
-                                </form>
-                            </div>
-                            <div class="form-group">
-                                <form action="#" method="POST">
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleFormControlSelect1">Kecamatan</label>
                                     <select class="form-control" id="kecamatan">
                                         <option class="hidden" selected disabled>Please Select Your Kecamatan</option>
                                     </select>
-                                </form>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Alamat Lengkap *"
-                                    value="">
-                            </div>
-                            <div>
-                                <label for="photo">Upload Foto KTP</label>
-                                <input type="file" name="photo" class="form-control" id="photo">
-                            </div>
 
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nama Akhir *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone"
-                                    class="form-control" placeholder="Your Phone *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password *"
-                                    value="" />
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Alamat Lengkap *"
+                                        value="">
+                                </div>
+                                <div>
+                                    <label for="photo">Upload Foto KTP</label>
+                                    <input type="file" name="photo" class="form-control" id="photo">
+                                </div>
 
-                            <div class="form-group">
-                                <form action="#" method="POST">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nama Akhir *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" minlength="10" maxlength="10" name="txtEmpPhone"
+                                        class="form-control" placeholder="Your Phone *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Confirm Password *"
+                                        value="" />
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleFormControlSelect1">Kota</label>
                                     <select class="form-control" id="kota">
-                                        <option class="hidden" selected disabled>Please Select Your Provinsi</option>
+                                        <option class="hidden" selected disabled>Please Select Your Provinsi
+                                        </option>
                                     </select>
-                                </form>
-                            </div>
-                            <div class="form-group">
-                                <form action="#" method="POST">
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleFormControlSelect1">Kelurahan</label>
                                     <select class="form-control" id="kelurahan">
                                         <option class="hidden" selected disabled>Please Select Your Kelurahan</option>
                                     </select>
-                                </form>
-                            </div>
-                            <div class="form-group">
-                                <div class="maxl">
-                                    <label class="radio inline">
-                                        <input type="radio" name="gender" value="male" checked>
-                                        <span> Pria </span>
-                                    </label>
-                                    <label class="radio inline">
-                                        <input type="radio" name="gender" value="female">
-                                        <span>Wanita </span>
-                                    </label>
                                 </div>
+                                <div class="form-group">
+                                    <div class="maxl">
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="male" checked>
+                                            <span> Pria </span>
+                                        </label>
+                                        <label class="radio inline">
+                                            <input type="radio" name="gender" value="female">
+                                            <span>Wanita </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <label for="photo">Input NIK</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nomor NIK *"
+                                        value="" />
+                                </div>
+                                <input type="submit" class="btnRegister" value="Register" />
                             </div>
-                            <label for="photo">Input NIK</label>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nomor NIK *"
-                                    value="" />
-                            </div>
-                            <input type="submit" class="btnRegister" value="Register" />
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
