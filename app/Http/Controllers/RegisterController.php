@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> 5c9d7987ff36c87bbcd4f8c4c3011b1b3011c7b4
 use App\Models\User;
 
 class RegisterController extends Controller
@@ -20,7 +23,10 @@ class RegisterController extends Controller
         'email'=>'required|email|unique:users,email',
         'password'=>'required|min:8',
         ]);
+<<<<<<< HEAD
         
+=======
+>>>>>>> 5c9d7987ff36c87bbcd4f8c4c3011b1b3011c7b4
 
         $attributes['password'] = bcrypt($attributes['password']);
 
@@ -33,6 +39,7 @@ class RegisterController extends Controller
         return redirect('/')->with('success', 'Yout account has been created!');;
     }
 }
+<<<<<<< HEAD
 =======
 use App\Models\Register;
 use App\Models\User;
@@ -81,3 +88,5 @@ class RegisterController extends Controller
     }
     }
 >>>>>>> Stashed changes
+=======
+>>>>>>> 5c9d7987ff36c87bbcd4f8c4c3011b1b3011c7b4

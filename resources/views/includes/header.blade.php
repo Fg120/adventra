@@ -19,6 +19,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">FAQ</a>
                 </li>
+                @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-primary" type="submit">Logout</button>
+                        </li>
+                    </form>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{{ route('register') }}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="{{ route('login') }}">Login</a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
