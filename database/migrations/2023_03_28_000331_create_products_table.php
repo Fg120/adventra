@@ -26,7 +26,6 @@ return new class extends Migration
             $table->string('stock_available');
             $table->string('stock_true');
             $table->timestamps();
-
         });
     }
 
