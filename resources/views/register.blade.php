@@ -55,70 +55,75 @@
                     <h3 class="register-heading">Register</h3>
                     <div class="row register-form">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nama Awal *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <form action="#" method="POST">
+                            <form action="{{ route('register') }}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nama Awal *" value=""
+                                        name="name" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email *" value=""
+                                        name="email" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *" value=""
+                                        name="password" />
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleFormControlSelect1">Provinsi</label>
-                                    <select class="form-control" id="provinsi">
+                                    <select class="form-control" id="provinsi" name="provinsi">
                                         <option class="hidden" selected disabled>Please Select Your Provinsi</option>
                                     </select>
-                                </form>
-                            </div>
-                            <div class="form-group">
-                                <form action="#" method="POST">
+
+                                </div>
+                                <div class="form-group">
+
                                     <label for="exampleFormControlSelect1">Kecamatan</label>
-                                    <select class="form-control" id="kecamatan">
+                                    <select class="form-control" id="kecamatan" name="village">
                                         <option class="hidden" selected disabled>Please Select Your Kecamatan</option>
                                     </select>
-                                </form>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Alamat Lengkap *"
-                                    value="">
-                            </div>
-                            <div>
-                                <label for="photo">Upload Foto KTP</label>
-                                <input type="file" name="photo" class="form-control" id="photo">
-                            </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Alamat Lengkap *"
+                                        value="" name="address">
+                                </div>
+                                <div>
+                                    <label for="photo">Upload Foto KTP</label>
+                                    <input type="file" name="photo" class="form-control" id="photo">
+                                </div>
 
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nama Akhir *"
-                                    value="" />
+                                <input type="text" class="form-control" placeholder="Nama Akhir *" value=""
+                                    / name="name">
                             </div>
                             <div class="form-group">
                                 <input type="text" minlength="10" maxlength="10" name="txtEmpPhone"
-                                    class="form-control" placeholder="Your Phone *" value="" />
+                                    class="form-control" placeholder="Your Phone *" value=""
+                                    name="phone_number" />
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password *"
-                                    value="" />
+                                <input type="password" name="confirm_password" class="form-control"
+                                    placeholder="Confirm Password *" value="" />
                             </div>
 
                             <div class="form-group">
-                                <form action="#" method="POST">
-                                    <label for="exampleFormControlSelect1">Kota</label>
-                                    <select class="form-control" id="kota">
-                                        <option class="hidden" selected disabled>Please Select Your Provinsi</option>
-                                    </select>
-                                </form>
+
+                                <label for="exampleFormControlSelect1">Kota</label>
+                                <select class="form-control" id="kota" name="city">
+                                    <option class="hidden" selected disabled>Please Select Your Provinsi</option>
+                                </select>
+
                             </div>
                             <div class="form-group">
-                                <form action="#" method="POST">
-                                    <label for="exampleFormControlSelect1">Kelurahan</label>
-                                    <select class="form-control" id="kelurahan">
-                                        <option class="hidden" selected disabled>Please Select Your Kelurahan</option>
-                                    </select>
-                                </form>
+
+                                <label for="exampleFormControlSelect1">Kelurahan</label>
+                                <select class="form-control" id="kelurahan" name="district">
+                                    <option class="hidden" selected disabled>Please Select Your Kelurahan</option>
+                                </select>
+
                             </div>
                             <div class="form-group">
                                 <div class="maxl">
@@ -134,105 +139,87 @@
                             </div>
                             <label for="photo">Input NIK</label>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nomor NIK *"
-                                    value="" />
+                                <input type="text" class="form-control" placeholder="Nomor NIK *" name=""
+                                    value="" name="id_photo" />
                             </div>
                             <input type="submit" class="btnRegister" value="Register" />
                         </div>
                     </div>
-                </div>
-                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3 class="register-heading">Apply as a Hirer</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" maxlength="10" minlength="10" class="form-control"
-                                    placeholder="Phone *" value="" />
-                            </div>
-                        </div>
-                    </div>
+                </form>
                 </div>
             </div>
+
         </div>
     </div>
+</div>
+</div>
 
-    <script>
-        fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/provinces.json`)
+<script>
+    fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/provinces.json`)
+        .then((response) => response.json())
+        .then((provinces) => {
+            var data = provinces;
+            var tampung = `<option>Pilih</option>`;
+            data.forEach((element) => {
+                tampung +=
+                    `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
+            });
+            document.getElementById("provinsi").innerHTML = tampung;
+        });
+</script>
+<script>
+    const selectProvinsi = document.getElementById('provinsi');
+    const selectKota = document.getElementById('kota');
+    const selectKecamatan = document.getElementById('kecamatan');
+    const selectKelurahan = document.getElementById('kelurahan');
+
+    selectProvinsi.addEventListener('change', (e) => {
+        var provinsi = e.target.options[e.target.selectedIndex].dataset.prov;
+        fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/regencies/${provinsi}.json`)
             .then((response) => response.json())
-            .then((provinces) => {
-                var data = provinces;
+            .then((regencies) => {
+                var data = regencies;
                 var tampung = `<option>Pilih</option>`;
+                document.getElementById('kota').innerHTML = '<option>Pilih</option>';
+                document.getElementById('kecamatan').innerHTML = '<option>Pilih</option>';
+                document.getElementById('kelurahan').innerHTML = '<option>Pilih</option>';
                 data.forEach((element) => {
                     tampung +=
                         `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
                 });
-                document.getElementById("provinsi").innerHTML = tampung;
+                document.getElementById("kota").innerHTML = tampung;
             });
-    </script>
-    <script>
-        const selectProvinsi = document.getElementById('provinsi');
-        const selectKota = document.getElementById('kota');
-        const selectKecamatan = document.getElementById('kecamatan');
-        const selectKelurahan = document.getElementById('kelurahan');
+    });
 
-        selectProvinsi.addEventListener('change', (e) => {
-            var provinsi = e.target.options[e.target.selectedIndex].dataset.prov;
-            fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/regencies/${provinsi}.json`)
-                .then((response) => response.json())
-                .then((regencies) => {
-                    var data = regencies;
-                    var tampung = `<option>Pilih</option>`;
-                    document.getElementById('kota').innerHTML = '<option>Pilih</option>';
-                    document.getElementById('kecamatan').innerHTML = '<option>Pilih</option>';
-                    document.getElementById('kelurahan').innerHTML = '<option>Pilih</option>';
-                    data.forEach((element) => {
-                        tampung +=
-                            `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
-                    });
-                    document.getElementById("kota").innerHTML = tampung;
+    selectKota.addEventListener('change', (e) => {
+        var kota = e.target.options[e.target.selectedIndex].dataset.prov;
+        fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/districts/${kota}.json`)
+            .then((response) => response.json())
+            .then((districts) => {
+                var data = districts;
+                var tampung = `<option>Pilih</option>`;
+                document.getElementById('kecamatan').innerHTML = '<option>Pilih</option>';
+                document.getElementById('kelurahan').innerHTML = '<option>Pilih</option>';
+                data.forEach((element) => {
+                    tampung +=
+                        `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
                 });
-        });
-
-        selectKota.addEventListener('change', (e) => {
-            var kota = e.target.options[e.target.selectedIndex].dataset.prov;
-            fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/districts/${kota}.json`)
-                .then((response) => response.json())
-                .then((districts) => {
-                    var data = districts;
-                    var tampung = `<option>Pilih</option>`;
-                    document.getElementById('kecamatan').innerHTML = '<option>Pilih</option>';
-                    document.getElementById('kelurahan').innerHTML = '<option>Pilih</option>';
-                    data.forEach((element) => {
-                        tampung +=
-                            `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
-                    });
-                    document.getElementById("kecamatan").innerHTML = tampung;
+                document.getElementById("kecamatan").innerHTML = tampung;
+            });
+    });
+    selectKecamatan.addEventListener('change', (e) => {
+        var kecamatan = e.target.options[e.target.selectedIndex].dataset.prov;
+        fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/villages/${kecamatan}.json`)
+            .then((response) => response.json())
+            .then((villages) => {
+                var data = villages;
+                var tampung = `<option>Pilih</option>`;
+                document.getElementById('kelurahan').innerHTML = '<option>Pilih</option>';
+                data.forEach((element) => {
+                    tampung +=
+                        `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
                 });
-        });
-        selectKecamatan.addEventListener('change', (e) => {
-            var kecamatan = e.target.options[e.target.selectedIndex].dataset.prov;
-            fetch(`https://kanglerian.github.io/api-wilayah-indonesia/api/villages/${kecamatan}.json`)
-                .then((response) => response.json())
-                .then((villages) => {
-                    var data = villages;
-                    var tampung = `<option>Pilih</option>`;
-                    document.getElementById('kelurahan').innerHTML = '<option>Pilih</option>';
-                    data.forEach((element) => {
-                        tampung +=
-                            `<option data-prov="${element.id}" value="${element.name}">${element.name}</option>`;
-                    });
-                    document.getElementById("kelurahan").innerHTML = tampung;
-                });
-        });
-    </script>
+                document.getElementById("kelurahan").innerHTML = tampung;
+            });
+    });
+</script>

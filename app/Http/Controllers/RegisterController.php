@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     public function create()
@@ -9,20 +10,22 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        dd($request->all());
+
         //create user
-        $attributes = Request()->validate([
-        'name' => 'required',
-        'email'=>'required|email|unique:users,email',
-        'password'=>'required|min:8',
-        ]);
+        //$attributes = Request()->validate([
+        //'name' => 'required',
+        //'email'=>'required|email|unique:users,email',
+        //'password'=>'required|min:8',
+        //]);
 
-        $attributes['password'] = bcrypt($attributes['password']);
+        //$attributes['password'] = bcrypt($attributes['password']);
 
-        $user = User::create($attributes);
+        //$user = User::create($attributes);
 
-        auth()->login($user);
+        //auth()->login($user);
 
         // session()->flash('success', 'Yout account has been created!');
 
