@@ -2,116 +2,114 @@
 
 @section('title', 'Home')
 
-@section('content')
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Users</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item {{ request()->segment(2) == 'users' ? 'active' : '' }}">Users</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+@section('link')
+    
+@endsection
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        {{-- <div class="card-header">
+@section('content')
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Users</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item {{ request()->segment(2) == 'users' ? 'active' : '' }}">Users</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            {{-- <div class="card-header">
                             <h3 class="card-title">DataTable with default features</h3>
                         </div> --}}
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table id="tables" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="sorting sorting_asc" tabindex="0"">No</th>
-                                        <th class="sorting">Name</th>
-                                        <th class="sorting">Email</th>
-                                        <th class="sorting">Role</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($users as $item)
-                                        <tr class="odd">
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->role }}</td>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="tables" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="sorting sorting_asc">No</th>
+                                            <th class="sorting">Name</th>
+                                            <th class="sorting">Email</th>
+                                            <th class="sorting">Role</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th rowspan="1" colspan="1">No</th>
-                                        <th rowspan="1" colspan="1">Name</th>
-                                        <th rowspan="1" colspan="1">Email</th>
-                                        <th rowspan="1" colspan="1">Role</th>
-                                </tfoot>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($users as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->role }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-body">
+                                <table id="example" class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">no</th>
+                                            <th scope="col">name</th>
+                                            <th scope="col">price</th>
+                                            <th scope="col">stocks</th>
+                                            {{-- <th scope="col">action</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($users as $item)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->role }}</td>
+                                                {{-- <td>
+                                                    <a href="{{ route('product.edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                                                    <a href="{{ route('product.destroy', $item->id) }}" class="btn btn-primary">Delete</a>
+                                                </td> --}}
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <h1>NO DATA</h1>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-body -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
     <script>
-        $(function() {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
+        $(document).ready(function() {
+            $('#example').DataTable();
         });
     </script>
 @endsection
 
 @section('script')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('adminLTE/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
-    <!-- jQuery -->
-    <script src="{{ asset('adminLTE/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="{{ asset('adminLTE/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/pdfmake/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/pdfmake/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('adminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
-    <!-- Page specific script -->
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>   
 @endsection

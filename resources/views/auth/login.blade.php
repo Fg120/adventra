@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title>Login - Adventra</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -18,6 +18,7 @@
 </head>
 
 <body class="hold-transition login-page">
+    @include('sweetalert::alert')
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">

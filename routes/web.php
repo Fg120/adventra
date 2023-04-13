@@ -1,8 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
-
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsersController;
@@ -23,7 +21,10 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
+Route::get('test', function()
+{
+    return view('test');
+});
 
 Route::get('/register', [RegisterController::class, 'index']) -> name('register');
 Route::POST('/register/store', [RegisterController::class, 'store'])->name('register.store');
