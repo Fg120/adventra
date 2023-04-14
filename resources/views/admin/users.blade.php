@@ -101,15 +101,8 @@
         </section>
         <!-- /.content -->
     </div>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>
 @endsection
 
 @section('script')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>   
+  
 @endsection
