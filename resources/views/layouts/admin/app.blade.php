@@ -40,9 +40,6 @@
         </symbol>
     </svg>
 
-    {{-- THEME CONTROL --}}
-    @include('includes.admin.theme')
-
     {{-- HEADER --}}
     @include('includes.admin.header')
 

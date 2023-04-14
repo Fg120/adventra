@@ -3,13 +3,13 @@
         <ul class="nav flex-column">
             {{-- <li class="{{ (request()->segment(2) == 'cities') ? 'active' : '' }}">   --}}
             {{-- <li class="{{ (request()->is('admin/cities*')) ? 'active' : '' }}">   --}}
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link {{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}" href="{{route('admin.dashboard')}}">
                     <i class="bi bi-house-fill align-text-bottom"></i>
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link {{ (request()->segment(2) == 'user') ? 'active' : '' }}" href="{{route('admin.user.index')}}">
                     <i class="bi bi-people-fill align-text-bottom"></i>
                     Users
