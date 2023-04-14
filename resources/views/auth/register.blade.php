@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    @include('sweetalert::alert')
-    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
+    {{-- @include('sweetalert::alert') --}}
+    {{-- <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
         <div class="container-fluid">
             <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
                 <div class="col-md-6">
@@ -40,15 +40,20 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> --}}
 
-    <div class="container register">
+    <div class="container register" style="margin-top: 0%;">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="/img/home/logo.png" alt="" />
                 <h3> Adventra</h3>
                 <p>Adventuring Worry-Free With Us!</p>
-                <input type="submit" name="" value="{{ old('') }}Login" /><br />
+                <div>
+                    <label for="sidebutton">Allready have account?</label>
+                    <a href="{{route('login')}}">
+                        <input type="submit" id="sidebutton" style="margin-top: -10px" value="Login">
+                    </a>
+                </div>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -65,130 +70,163 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Register</h3>
                         <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
-                            <div class="row register-form">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nama Lengkap *"
-                                            value="{{ old('name') }}" name="name" />
-                                        @error('name')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                            <div class="register-form">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Nama Lengkap *"
+                                                value="{{ old('name') }}" name="name" />
+                                            @error('name')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    @csrf
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email *"
-                                            value="{{ old('email') }}" name="email" />
-                                        @error('email')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *"
+                                                value="{{ old('email') }}" name="email" />
+                                            @error('email')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *"
-                                            value="" name="password" />
-                                        @error('password')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="12" class="form-control"
+                                                placeholder="Nomor HP *" value="{{ old('phone_number') }}"
+                                                name="phone_number" />
+                                            @error('phone_number')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Provinsi</label>
-                                        <select class="form-control" id="provinsi" name="province">
-                                            <option class="hidden" selected disabled>Pilih Provinsi Anda</option>
-                                        </select>
-                                        @error('province')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *"
+                                                value="" name="password" />
+                                            @error('password')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Kecamatan</label>
-                                        <select class="form-control" id="kecamatan" name="city">
-                                            <option class="hidden" selected disabled>Pilih Kecamatan Anda</option>
-                                        </select>
-                                        @error('city')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" name="confirm_password" class="form-control"
+                                                placeholder="Konfirmasi Password *" value="" />
+                                            @error('confirm_password')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Alamat Lengkap *"
-                                            value="{{ old('address') }}" name="address">
-                                        @error('address')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{-- <label for="exampleFormControlSelect1">Provinsi</label> --}}
+                                            <select class="form-control" id="provinsi" name="province">
+                                                <option class="hidden" selected disabled>Pilih Provinsi Anda</option>
+                                            </select>
+                                            @error('province')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label for="photo">Upload Foto KTP</label>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{-- <label for="exampleFormControlSelect1">Kabupaten</label> --}}
+                                            <select class="form-control" id="kota" name="regency">
+                                                <option class="hidden" selected disabled>Pilih Kabupaten Anda</option>
+                                            </select>
+                                            @error('regency')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{-- <label for="exampleFormControlSelect1">Kecamatan</label> --}}
+                                            <select class="form-control" id="kecamatan" name="city">
+                                                <option class="hidden" selected disabled>Pilih Kecamatan Anda</option>
+                                            </select>
+                                            @error('city')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{-- <label for="exampleFormControlSelect1">Kelurahan</label> --}}
+                                            <select class="form-control" id="kelurahan" name="village">
+                                                <option class="hidden" selected disabled>Pilih Kelurahan Anda</option>
+                                            </select>
+                                            @error('village')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Alamat Lengkap *"
+                                                value="{{ old('address') }}" name="address">
+                                            @error('address')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="maxl mt-1">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Pria </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Wanita </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{-- <label for="photo">Upload Foto KTP</label> --}}
                                         <input type="file" name="id_photo" class="form-control" id="id_photo">
                                         @error('id_photo')
                                             <p class="text-danger fs-6">{{ $message }}</p>
                                         @enderror
                                     </div>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" minlength="10" maxlength="12" class="form-control"
-                                            placeholder="Nomor HP *" value="{{ old('phone_number') }}"
-                                            name="phone_number" />
-                                        @error('phone_number')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="confirm_password" class="form-control"
-                                            placeholder="Konfirmasi Password *" value="" />
-                                        @error('confirm_password')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Kabupaten</label>
-                                        <select class="form-control" id="kota" name="regency">
-                                            <option class="hidden" selected disabled>Pilih Kabupaten Anda</option>
-                                        </select>
-                                        @error('regency')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Kelurahan</label>
-                                        <select class="form-control" id="kelurahan" name="village">
-                                            <option class="hidden" selected disabled>Pilih Kelurahan Anda</option>
-                                        </select>
-                                        @error('village')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="maxl">
-                                            <label class="radio inline">
-                                                <input type="radio" name="gender" value="male" checked>
-                                                <span> Pria </span>
-                                            </label>
-                                            <label class="radio inline">
-                                                <input type="radio" name="gender" value="female">
-                                                <span>Wanita </span>
-                                            </label>
+                                    <div class="col-md-6">
+                                        {{-- <label for="photo">Input NIK</label> --}}
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Nomor NIK *"
+                                                name="nik" value="{{ old('nik') }}" name="nik" />
+                                            @error('nik')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
-                                    <label for="photo">Input NIK</label>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Nomor NIK *"
-                                            name="nik" value="{{ old('nik') }}" name="nik" />
-                                        @error('nik')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
+                                </div>
+                                <div class="row" style="margin-top: -50px; margin-bottom: -45px">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btnRegister flex-end" value="Register" />
                                     </div>
-                                    <input type="submit" class="btnRegister" value="Register" value="" />
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 
     <script>
