@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Validation\ValidationException;
 use RealRashid\SweetAlert\Facades\Alert;
-
 class LoginController extends Controller
 {
     public function create()
@@ -30,13 +29,14 @@ class LoginController extends Controller
         if (auth()->user()->role == 'admin') {
             return redirect('/admin/dashboard')->with('success', 'Welcome Back!');
         }
-        return redirect('/')->with('success', 'Welcome Back!');
+        return redirect('/');
     }
-
+    
     public function destroy()
     {
         auth()->logout();
-
-        return redirect('/')->with('success', 'Goodbye!');
+        
+        alert::success('Goodbye!');
+        return redirect('/');
     }
 }

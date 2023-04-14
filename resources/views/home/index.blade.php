@@ -3,6 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
+@include('sweetalert::alert')
     <section class="mb-3">
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
