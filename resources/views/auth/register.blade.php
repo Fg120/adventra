@@ -49,7 +49,7 @@
                 <h3> Adventra</h3>
                 <p>Adventuring Worry-Free With Us!</p>
                 <div>
-                    <label for="sidebutton">Allready have account?</label>
+                    <label for="sidebutton">Already have account?</label>
                     <a href="{{route('login')}}">
                         <input type="submit" id="sidebutton" style="margin-top: -10px" value="Login">
                     </a>
