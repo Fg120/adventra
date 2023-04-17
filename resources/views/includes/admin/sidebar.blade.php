@@ -4,6 +4,13 @@
             {{-- <li class="{{ (request()->segment(2) == 'cities') ? 'active' : '' }}">   --}}
             {{-- <li class="{{ (request()->is('admin/cities*')) ? 'active' : '' }}">   --}}
             <li class="nav-item">
+                <div class="nav-link">
+                    <h6>Welcome</h6>
+                    {{auth()->user()->name}} <br>
+                    {{auth()->user()->email}}
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}" href="{{route('admin.dashboard')}}">
                     <i class="bi bi-house-fill align-text-bottom"></i>
                     Dashboard
@@ -16,15 +23,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="feather feather-shopping-cart align-text-bottom"
-                        aria-hidden="true">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
+                <a class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }}" href="{{route('admin.product.index')}}">
+                    <i class="bi bi-cart-fill align-text-bottom"></i>
                     Products
                 </a>
             </li>

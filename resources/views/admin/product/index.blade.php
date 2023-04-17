@@ -19,10 +19,10 @@
                         <div class="card shadow">
                             <div class="card-header justify-content-between row">
                                 <div class="col-md-6 d-flex align-items-start flex-column">
-                                    <h3 class="card-title">Data User</h3>
+                                    <h3 class="card-title">Data Product</h3>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-end flex-column">
-                                    <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Tambah</a>
+                                    <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Tambah</a>
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -33,32 +33,32 @@
                                             <tr>
                                                 <th class="sorting sorting_asc">No</th>
                                                 <th class="sorting">Name</th>
-                                                <th class="sorting">Email</th>
-                                                <th class="sorting">No Hp</th>
-                                                <th class="sorting">Alamat</th>
-                                                <th class="sorting">Role</th>
+                                                <th class="sorting">Desc</th>
+                                                <th class="sorting">Price</th>
+                                                <th class="sorting">Stock Available</th>
+                                                <th class="sorting">Stock True</th>
                                                 <th class="sorting">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $item)
+                                            @foreach ($products as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->phone_number }}</td>
                                                     <td>
                                                         <span class="d-inline-block text-truncate"
-                                                            style="max-width: 150px">{{ $item->address }}</span>
+                                                            style="max-width: 150px">{{ $item->desc }}</span>
                                                     </td>
-                                                    <td>{{ $item->role }}</td>
+                                                    <td>{{ $item->price }}</td>
+                                                    <td>{{ $item->stock_available }}</td>
+                                                    <td>{{ $item->stock_true }}</td>
                                                     <td class="d-flex">
-                                                        <a href="{{ route('admin.user.edit', $item->id) }}" type="button"
+                                                        <a href="{{ route('admin.product.edit', $item->id) }}" type="button"
                                                             class="btn btn-primary me-3">Edit</a>
-                                                        {{-- <a href="{{ route('admin.user.detail', $item->id) }}" type="button"
+                                                        {{-- <a href="{{ route('admin.product.detail', $item->id) }}" type="button"
                                                             class="btn btn-primary me-3">Detail</a> --}}
                                                         <form method="POST"
-                                                            action="{{ route('admin.user.destroy', $item->id) }}">
+                                                            action="{{ route('admin.product.destroy', $item->id) }}">
                                                             @csrf
                                                             <button type="submit"
                                                                 class="btn btn-xs btn-danger btn-flat show_confirm"
