@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Middleware\AdminCheck;
 use Illuminate\Support\Facades\Route;
 
@@ -21,12 +21,12 @@ Route::middleware(AdminCheck::class)->group(function () {
     });
     
     Route::prefix('product')->name('product.')->group(function () {
-        Route::get('/', [ProductController::class, 'index'])->name('index');
-        Route::get('/create', [ProductController::class, 'create'])->name('create');
-        Route::post('/store', [ProductController::class, 'store'])->name('store');
-        Route::post('/detail/{id}', [ProductController::class, 'show'])->name('detail');
-        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-        Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::get('/', [ProductsController::class, 'index'])->name('index');
+        Route::get('/create', [ProductsController::class, 'create'])->name('create');
+        Route::post('/store', [ProductsController::class, 'store'])->name('store');
+        Route::post('/detail/{id}', [ProductsController::class, 'show'])->name('detail');
+        Route::get('/edit/{id}', [ProductsController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [ProductsController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [ProductsController::class, 'destroy'])->name('destroy');
     });
 });
