@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategorysController;
 use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Middleware\AdminCheck;
@@ -28,5 +29,15 @@ Route::middleware(AdminCheck::class)->group(function () {
         Route::get('/edit/{id}', [ProductsController::class, 'edit'])->name('edit');
         Route::post('/update/{id}', [ProductsController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [ProductsController::class, 'destroy'])->name('destroy');
+    });
+    
+    Route::prefix('category')->name('category.')->group(function () {
+        Route::get('/', [CategorysController::class, 'index'])->name('index');
+        Route::get('/create', [CategorysController::class, 'create'])->name('create');
+        Route::post('/store', [CategorysController::class, 'store'])->name('store');
+        Route::post('/detail/{id}', [CategorysController::class, 'show'])->name('detail');
+        Route::get('/edit/{id}', [CategorysController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [CategorysController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [CategorysController::class, 'destroy'])->name('destroy');
     });
 });

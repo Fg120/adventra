@@ -115,6 +115,19 @@
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="basic-addon1">Kategori</span>
+                                                <select class="form-control" name="id_category" id="id_category">
+                                                    @foreach ($categorys as $item)
+                                                        <option value="{{$item->id}}" {{ ($item->id == $product->id_category) ? 'selected' : '' }}>{{$item->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('id_category')
+                                                <p class="text-danger fs-6">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">

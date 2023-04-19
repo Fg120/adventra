@@ -19,6 +19,8 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/product', [HomeController::class, 'product'])->name('home.product');
+Route::get('/product/view/{id}', [HomeController::class, 'view'])->name('home.view');
 Route::get('test', function()
 {
     return view('test');

@@ -1,64 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+@section('title', 'Home')
 
-    <title>Adventra - Index</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
-
-
-</head>
-
-<body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
-        <div class="container d-flex align-items-center">
-
-            <h1 class="logo me-auto"><a href="{{ route('home.index') }}">Adventra</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="{{ route('home.index') }}">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#services">About</a></li>
-                    <li><a class="nav-link   scrollto" href="#portfolio">Produk</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
-                    <li><a class="getstarted scrollto" href="{{ route('register') }}">Sewa Sekarang</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-
-        </div>
-    </header><!-- End Header -->
-
+@section('content')
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
 
@@ -135,8 +79,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
-                        data-aos-delay="100">
+                    <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bxl-dribbble"></i></div>
                             <h4><a href="">Booking & Belanja Online</a></h4>
@@ -192,7 +135,7 @@
                             <li data-filter=".filter-app">Pakaian</li>
                             <li data-filter=".filter-card">Alat Masak</li>
                             <li data-filter=".filter-web">Slepping Bag</li>
-                            <li data-filter=".filter-web">Matrass</li>
+                            <li data-filter=".filter-tas">Matrass</li>
                         </ul>
 
                         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -309,7 +252,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                            <div class="col-lg-4 col-md-6 portfolio-item filter-tas">
                                 <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg"
                                         class="img-fluid" alt=""></div>
                                 <div class="portfolio-info">
@@ -460,8 +403,8 @@
                         </div>
 
                         <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                            style='background-image: url("img/home/wdwp.png");' data-aos="zoom-in"
-                            data-aos-delay="150">&nbsp;</div>
+                            style='background-image: url("img/home/wdwp.png");' data-aos="zoom-in" data-aos-delay="150">
+                            &nbsp;</div>
                     </div>
 
                 </div>
@@ -499,8 +442,8 @@
                     <div class="faq-list">
                         <ul>
                             <li data-aos="fade-up" data-aos-delay="100">
-                                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                    class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus
+                                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                                    data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus
                                     urna duis? <i class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
@@ -706,8 +649,8 @@
 
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.400752859682!2d113.71039277529795!3d-8.162317091868417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6955f324eacef%3A0x15cfbb5232694a7e!2sEJSC%20(East%20Java%20Super%20Coridor)%20JEMBER!5e0!3m2!1sid!2sid!4v1681466698823!5m2!1sid!2sid"
-                                    width="600" height="450" style="border:0;" allowfullscreen=""
-                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
 
                         </div>
@@ -728,8 +671,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Subject</label>
-                                    <input type="text" class="form-control" name="subject" id="subject"
-                                        required>
+                                    <input type="text" class="form-control" name="subject" id="subject" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Message</label>
@@ -752,41 +694,4 @@
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-    <footer id="footer">
-
-
-        </div>
-
-        <div class="container footer-bottom clearfix">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Adventra </span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-
-            </div>
-        </div>
-    </footer><!-- End Footer -->
-
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+@endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -28,7 +29,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categorys = Category::all();
+        return view('admin.product.create', compact('categorys'));
     }
 
     /**
@@ -46,6 +48,7 @@ class ProductsController extends Controller
             'stock_available' => 'required',
             'stock_true' => 'required',
             'photo' => 'required',
+            'id_category' => 'required',
         ], [
             'name.required' => 'Masukkan nama produk!',
             'name.unique' => 'Nama produk telah dipakai!',
@@ -54,6 +57,7 @@ class ProductsController extends Controller
             'stock_available.required' => 'Masukkan Stock available produk!',
             'stock_true.required' => 'Masukkan Stock true produk!',
             'photo.required' => 'Upload foto produk!',
+            'id_category.required' => 'Pilih kategori produk!',
         ]);
 
         if ($request->photo != null) {
@@ -72,6 +76,7 @@ class ProductsController extends Controller
                     'stock_available' => $request->stock_available,
                     'stock_true' => $request->stock_true,
                     'photo' => $photo_path,
+                    'id_category' => $request->id_category,
                 ];
                 $products = Product::create($data);
 
@@ -102,8 +107,9 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
+        $categorys = Category::all();
         $product = Product::find($id);
-        return view('admin.product.edit', compact('product'));
+        return view('admin.product.edit', compact('product', 'categorys'));
     }
 
     public function update(Request $request, $id)
@@ -124,6 +130,7 @@ class ProductsController extends Controller
         $product->price = $request->price;
         $product->stock_available = $request->stock_available;
         $product->stock_true = $request->stock_true;
+        $product->id_category = $request->id_category;
         if ($request->id_photo != '') {
             $product->id_photo = $photo_path;
         }
