@@ -19,10 +19,10 @@
                         <div class="card shadow">
                             <div class="card-header justify-content-between row">
                                 <div class="col-md-6 d-flex align-items-start flex-column">
-                                    <h3 class="card-title">Data Product</h3>
+                                    <h3 class="card-title">Data Order</h3>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-end flex-column">
-                                    <a href="{{ route('admin.product.create') }}" class="btn btn-primary">Tambah</a>
+                                    {{-- <a href="{{ route('admin.order.create') }}" class="btn btn-primary">Tambah</a> --}}
                                 </div>
                             </div>
                             <!-- /.card-header -->
@@ -32,34 +32,31 @@
                                         <thead>
                                             <tr>
                                                 <th class="sorting sorting_asc">No</th>
-                                                <th class="sorting">Name</th>
-                                                <th class="sorting">Desc</th>
-                                                <th class="sorting">Price</th>
-                                                <th class="sorting">Stock Available</th>
-                                                <th class="sorting">Stock True</th>
-                                                <th class="sorting">Action</th>
+                                                <th class="sorting">Order ID</th>
+                                                <th class="sorting">By</th>
+                                                <th class="sorting">Status</th>
+                                                <th class="sorting">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($products as $item)
+                                            @foreach ($orders as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->fkCategory->name }}</td>
-                                                    <td>
-                                                        <span class="d-inline-block text-truncate"
-                                                            style="max-width: 150px">{{ $item->desc }}</span>
+                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $item->user->name }}</td>
+                                                    <td><span
+                                                            class="badge 
+                                                        @if ($item->status == 'Belum Dibayar') text-bg-secondary @endif
+                                                        {{ ($item->status == 'Menunggu Konfirmasi') ? 'text-bg-warning' : '' }}
+                                                        {{ ($item->status == 'Terkonfirmasi') ? 'text-bg-info' : '' }}
+                                                        {{ ($item->status == 'Selesai') ? 'text-bg-success' : '' }}
+                                                            ">{{ $item->status }}</span>
                                                     </td>
-                                                    <td>{{ $item->price }}</td>
-                                                    <td>{{ $item->stock_available }}</td>
-                                                    <td>{{ $item->stock_true }}</td>
                                                     <td class="d-flex">
-                                                        <a href="{{ route('admin.product.edit', $item->id) }}" type="button"
-                                                            class="btn btn-primary me-3">Edit</a>
-                                                        {{-- <a href="{{ route('admin.product.detail', $item->id) }}" type="button"
-                                                            class="btn btn-primary me-3">Detail</a> --}}
+                                                        <a href="{{ route('admin.order.edit', $item->id) }}"
+                                                            type="button" class="btn btn-primary me-3">Detail</a>
                                                         <form method="POST"
-                                                            action="{{ route('admin.product.destroy', $item->id) }}">
+                                                            {{-- action="{{ route('admin.order.destroy', $item->id) }}"> --}}
                                                             @csrf
                                                             <button type="submit"
                                                                 class="btn btn-xs btn-danger btn-flat show_confirm"

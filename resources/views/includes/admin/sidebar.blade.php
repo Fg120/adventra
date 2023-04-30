@@ -24,7 +24,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ (request()->segment(2) == 'category') ? 'active' : '' }}" href="{{route('admin.category.index')}}">
-                    <i class="bi bi-cart-fill align-text-bottom"></i>
+                    <i class="bi bi-grid-fill align-text-bottom"></i>
                     Categorys
                 </a>
             </li>
@@ -32,6 +32,12 @@
                 <a class="nav-link {{ (request()->segment(2) == 'product') ? 'active' : '' }}" href="{{route('admin.product.index')}}">
                     <i class="bi bi-cart-fill align-text-bottom"></i>
                     Products
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->segment(2) == 'order') ? 'active' : '' }}" href="{{route('admin.order.index')}}">
+                    <i class="bi bi-receipt-cutoff align-text-bottom"></i>
+                    Orders
                 </a>
             </li>
             <li class="nav-item">

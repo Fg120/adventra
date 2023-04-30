@@ -14,11 +14,9 @@
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                     <h1>{{ $products->name }}</h1>
-                    <h2>Our Partner in 30+ cities ready to rent you adventure equipment need!</h2>
+                    <h2>{{ $products->fkCategory->name }}</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
                         <a href="#about" class="btn-get-started scrollto">Sewa Sekarang</a>
-                        <a href="https://youtu.be/vky7F5OK5Zk" class="glightbox btn-watch-video"><i
-                                class="bi bi-play-circle"></i><span>Watch Video</span></a>
                     </div>
                 </div>
             </div>
@@ -31,12 +29,13 @@
         <section id="services" class="services section-bg">
             <div class="container">
                 <div class="section-title">
-                    <h2>DESCRIPTION</h2>
+                    <h2>INFORMATION</h2>
                     <h3> {{ $products->name }} </h3>
                 </div>
                 <div class="row">
                     <div class="col-xl-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box" style="width: 100%">
+                            <h4>Deskripsi</h4>
                             <p>{{ $products->desc }}</p>
                         </div>
                     </div>
@@ -45,14 +44,23 @@
                         <div class="icon-box" style="width: 50%">
                             <span>
                                 <h4>Harga</h4>
-                                <h6>Rp.{{$products->price}}/Hari</h6>
+                                <h6>Rp.{{ $products->price }}/Hari</h6>
                             </span>
                             <span>
                                 <h4>Stock</h4>
-                                <h6>{{$products->stock_available}} Pcs</h6>
+                                <h6>{{ $products->stock_available }} Pcs</h6>
                             </span>
                             <h5>Masukkan keranjang?</h5>
-                            <a href="#" class="btn btn-primary">Tambahkan</a>
+                            <form action="{{ route('add_to_cart', $products) }}" method="post">
+                                @csrf
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" aria-describedby="basic-addon2"
+                                        name="amount" value=1>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="submit">Tambahkan</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
