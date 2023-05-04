@@ -21,8 +21,9 @@
                             @if (Auth()->user()->role == 'admin')
                                 <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             @endif
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Status Pesanan</a></li>
+                            <li><a href="#">Akun Saya</a></li>
+                            <li><a href="{{ route('show_cart') }}">Keranjang</a></li>
+                            <li><a href="{{ route('show_order') }}">Pesanan</a></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="post" id="logout">
                                     @csrf
