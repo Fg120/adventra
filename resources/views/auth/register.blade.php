@@ -42,7 +42,7 @@
         </div>
     </nav> --}}
 
-    <div class="container register" style="margin-top: 0%;">
+    <div class="container register" style="max-width: 1440px;">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="/img/home/logo.png" alt="" />
