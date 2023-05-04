@@ -21,25 +21,27 @@
                             @if (Auth()->user()->role == 'admin')
                                 <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             @endif
-                                    <li><a href="#">Akun Saya</a></li>
-                                    <li><a href="#">Keranjang</a></li>
-                                    <li><a href="#">Pesanan</a></li>
-                                    <li>
-                                        <form action="{{ route('logout') }}" method="post" id="logout">
-                                            @csrf
-                                            <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
-                                        </form>
-                                    </li>
-                                </ul>
+                            @if (Auth()->user()->role == 'user')
+                                <li><a href="#">Akun Saya</a></li>
+                                <li><a href="#">Keranjang</a></li>
+                                <li><a href="#">Pesanan</a></li>
+                            @endif
+                            <li>
+                                <form action="{{ route('logout') }}" method="post" id="logout">
+                                    @csrf
+                                    <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+                                </form>
                             </li>
-                            
-                            
                         </ul>
                     </li>
-                @else
-                    <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
-                    <li><a class="getstarted scrollto" href="{{ route('register') }}">Sewa Sekarang</a></li>
-                @endauth
+
+
+                </ul>
+                </li>
+            @else
+                <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
+                <li><a class="getstarted scrollto" href="{{ route('register') }}">Sewa Sekarang</a></li>
+            @endauth
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

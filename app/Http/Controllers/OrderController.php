@@ -18,8 +18,7 @@ class OrderController extends Controller
         $user_id = Auth::id();
         $carts = Cart::where('user_id', $user_id)->get();
 
-        if ($carts == null)
-        {
+        if ($carts == null) {
             return Redirect::back();
         }
 
@@ -53,7 +52,7 @@ class OrderController extends Controller
         if ($admin || $order->user_id == $user->id) {
             return view('home.show_order', compact('order'));
         }
-        
+
         return Redirect::route('index_order');
     }
 
@@ -71,5 +70,14 @@ class OrderController extends Controller
         ]);
 
         return Redirect::back();
+    }
+
+    public function index_order()
+    {
+        $user = Auth::user();
+
+        $orders = Order::where('user_id', $user->id)->get();
+
+        return view('home.index_order', compact('orders'));
     }
 }
