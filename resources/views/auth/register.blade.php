@@ -50,7 +50,7 @@
                 <p>Adventuring Worry-Free With Us!</p>
                 <div>
                     <label for="sidebutton">Already have account?</label>
-                    <a href="{{route('login')}}">
+                    <a href="{{ route('login') }}">
                         <input type="submit" id="sidebutton" style="margin-top: -10px" value="Login">
                     </a>
                 </div>
@@ -199,22 +199,28 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        {{-- <label for="photo">Upload Foto KTP</label> --}}
-                                        <input type="file" name="id_photo" class="form-control" id="id_photo">
-                                        @error('id_photo')
-                                            <p class="text-danger fs-6">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6">
-                                        {{-- <label for="photo">Input NIK</label> --}}
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Nomor NIK *"
-                                                name="nik" value="{{ old('nik') }}" name="nik" />
-                                            @error('nik')
+
+                                            {{-- <label for="photo">Upload Foto KTP</label> --}}
+                                            <input type="file" name="id_photo" class="form-control"
+                                                id="id_photo">
+                                            @error('id_photo')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            {{-- <label for="photo">Input NIK</label> --}}
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Nomor NIK *"
+                                                    name="nik" value="{{ old('nik') }}" name="nik" />
+                                                @error('nik')
+                                                    <p class="text-danger fs-6">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>  
                                 </div>
                                 <div class="row" style="margin-top: -50px; margin-bottom: -45px">
                                     <div class="col-md-12">

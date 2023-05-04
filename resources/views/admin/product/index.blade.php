@@ -33,6 +33,7 @@
                                             <tr>
                                                 <th class="sorting sorting_asc">No</th>
                                                 <th class="sorting">Name</th>
+                                                <th class="sorting">Category</th>
                                                 <th class="sorting">Desc</th>
                                                 <th class="sorting">Price</th>
                                                 <th class="sorting">Stock Available</th>
@@ -50,7 +51,7 @@
                                                         <span class="d-inline-block text-truncate"
                                                             style="max-width: 150px">{{ $item->desc }}</span>
                                                     </td>
-                                                    <td>{{ $item->price }}</td>
+                                                    <td>{{ $item->price }} K</td>
                                                     <td>{{ $item->stock_available }}</td>
                                                     <td>{{ $item->stock_true }}</td>
                                                     <td class="d-flex">

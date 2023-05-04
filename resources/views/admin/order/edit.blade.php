@@ -62,6 +62,18 @@
                                     <hr>
                                     <p>Total: Rp. {{ number_format($total_price) }}</p>
                                     <hr>
+                                    {{-- <div class="col-md-6"> --}}
+                                        <div class="input-group mb-3">
+                                            @if ($order->payment_receipt != null)
+                                                <div style="width: 200px;">
+                                                    <img src="{{ asset('storage/' . $order->payment_receipt) }}"
+                                                        class="img-fluid" alt="">
+                                                </div>
+                                            {{-- @else --}}
+                                                {{-- <p class="text-info">No Photo</p> --}}
+                                            @endif
+                                        </div>
+                                    {{-- </div> --}}
                                 </div>
                                 <div class="row">
                                     <h3>Ubah Status</h3>
