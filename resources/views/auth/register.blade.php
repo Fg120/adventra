@@ -104,6 +104,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -197,6 +198,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -222,7 +224,8 @@
                                         </div>
                                     </div>  
                                 </div>
-                                <div class="row" style="margin-top: -50px; margin-bottom: -45px">
+                                
+                                <div class="row">
                                     <div class="col-md-12">
                                         <input type="submit" class="btnRegister flex-end" value="Register" />
                                     </div>
