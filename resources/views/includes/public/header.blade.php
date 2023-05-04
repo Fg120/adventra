@@ -11,9 +11,6 @@
                         href="{{ route('home.index') }}">Home</a></li>
                 <li><a class="nav-link scrollto {{ request()->segment(1) == 'product' ? 'active' : '' }}"
                         href="{{ route('home.product') }}">Produk</a></li>
-                <li><a class="nav-link scrollto" href="#services">About</a></li>
-                <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 @auth
                     <li class="dropdown"><a href="#"><span>{{ Auth()->user()->name }}</span> <i
                                 class="bi bi-chevron-down"></i></a>

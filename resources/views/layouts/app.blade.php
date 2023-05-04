@@ -36,7 +36,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    @include('includes.header')
+    @include('includes.public.header')
     <!-- End Header -->
 
     <!-- ======= Content ======= -->
@@ -45,7 +45,7 @@
     
 
     <!-- ======= Footer ======= -->
-    @include('includes.footer')
+    @include('includes.public.footer')
     <!-- End Footer -->
 
     <div id="preloader"></div>
