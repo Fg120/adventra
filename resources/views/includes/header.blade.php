@@ -15,29 +15,25 @@
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 @auth
-                    <li class="dropdown"><a href="#"><span>Welcome, {{ Auth()->user()->email }}</span> <i
+                    <li class="dropdown"><a href="#"><span>{{ Auth()->user()->name }}</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul class="">
                             @if (Auth()->user()->role == 'admin')
                                 <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             @endif
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
-                                        class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                    <li><a href="#">Akun Saya</a></li>
+                                    <li><a href="#">Keranjang</a></li>
+                                    <li><a href="#">Pesanan</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post" id="logout">
+                                            @csrf
+                                            <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
+                                        </form>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li>
-                                <form action="{{ route('logout') }}" method="post" id="logout">
-                                    @csrf
-                                    <a href="#" onclick="document.getElementById('logout').submit()">Logout</a>
-                                </form>
-                            </li>
+                            
+                            
                         </ul>
                     </li>
                 @else
