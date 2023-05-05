@@ -8,6 +8,7 @@
     <title>Register - Adventra</title>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" type="text/css" href="css/css.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -42,6 +43,50 @@
         </div>
     </nav> --}}
 
+    <div class="atas">
+        <div class="bungkus">
+            <div class="kiri">
+                <h3> <b> ADVENTRA</b> </h3>
+            </div>
+            <form action="{{ route('login') }}" method="post">
+                @include('sweetalert::alert')
+                <div class="kanan">
+                    <div class="user">
+                        <div class="judul">
+                            Email atau Telepon
+                        </div>
+                        @csrf
+                        <div class="input">
+                            <input type="email" class="form-control" placeholder="Email" value="{{ old('email') }}"
+                                name="email" />
+                            @error('email')
+                                <p class="text-danger fs-6">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="user" style="margin-right: 2px;">
+                        <div class="judul">
+                            Kata Sandi
+                        </div>
+                        <div class="input">
+                            <input type="password" class="form-control" placeholder="Password"
+                                value="{{ old('password') }}" name="password" />
+                            @error('password')
+                                <p class="text-danger fs-6">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ route('login') }}">
+                            <input type="submit" id="sidebutton" style="margin-left:400px;" value="Login">
+                        </a>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container register" style="max-width: 1440px;">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -50,7 +95,7 @@
                 <p>Adventuring Worry-Free With Us!</p>
                 <div>
                     <label for="sidebutton">Already have account?</label>
-                    <a href="{{ route('login') }}">
+                    <a href="{{ route('register') }}">
                         <input type="submit" id="sidebutton" style="margin-top: -10px" value="Login">
                     </a>
                 </div>
@@ -220,7 +265,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>  
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">

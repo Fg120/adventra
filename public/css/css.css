@@ -1,0 +1,203 @@
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #d3dbda;
+}
+
+.atas {
+    width: 100%;
+    height: 80px;
+    background: #0062cc;
+    ;
+}
+
+.bungkus {
+    width: 73%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.kiri {
+    width: 59%;
+    height: 100%;
+}
+
+.kiri h3 {
+    margin: -120px;
+    margin-top: 20px;
+    color: white;
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.kanan {
+    height: 100%;
+}
+
+.user {
+    float: left;
+    padding: 10px;
+    font-size: 12px;
+    padding-top: 15px;
+}
+
+.judul {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.input input {
+    padding: 2px;
+    border: 1px solid #1d2a5b;
+}
+
+.lupa a {
+    text-decoration: none;
+    color: #8fb4cc;
+}
+
+.lupa {
+    margin-top: 5px;
+}
+
+.input button {
+    background: #0062cc;
+    border: 1px solid blue;
+    padding: 2px;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.content {
+    background: url(../icon/aa.png) 0 bottom repeat-x;
+    background: linear-gradient(white, #E8D3D3);
+    width: 100%;
+    padding-bottom: 200px;
+}
+
+.bc {
+    margin: 0 auto;
+    width: 980px;
+    display: flex;
+}
+
+.kr {
+    width: 565px;
+}
+
+.kn {
+    width: 400px;
+}
+
+.jd {
+    color: #0e385f;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-top: 40px;
+    width: 450px;
+    word-spacing: -1px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.it {
+    margin-top: 10px;
+}
+
+.it1 {
+    width: 100%;
+    background: white;
+    border-radius: 7px;
+    border: 1px solid #bdc7d8;
+    overflow: hidden;
+}
+
+.it1 input {
+    font-size: 18px;
+    padding: 7px;
+    width: -moz-available;
+    border: unset;
+}
+
+.at {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.at h2 {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 36px;
+}
+
+.at a {
+    color: #1d2129;
+    font-size: 19px;
+}
+
+.sl select {
+    border: 1px solid #ccd0d5;
+    font-size: 13px;
+    background-color: #fff;
+    color: #1c1e21;
+    height: 30px;
+    padding: 5px;
+}
+
+.jd2 h5 {
+    margin: unset;
+    color: #90949c;
+}
+
+.jd2 {
+    color: #0e385f;
+    font-size: 20px;
+    font-weight: bold;
+    width: 450px;
+    word-spacing: -1px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.it button {
+    font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
+    font-size: 19px;
+    letter-spacing: normal;
+    text-rendering: optimizelegibility;
+    /*box-shadow: inset 0 1px 1px #a4e388;*/
+    border: 1px solid;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+    min-width: 194px;
+    padding: 7px 20px;
+    text-align: center;
+}
+
+.it p {
+    color: #777;
+    font-size: 11px;
+    width: 316px;
+}
+
+.rd {
+    font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+    color: #1d2129;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 0 10px 0 3px;
+}
