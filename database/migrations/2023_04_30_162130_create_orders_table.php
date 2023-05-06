@@ -18,6 +18,9 @@ return new class extends Migration
             $table->enum('status', ['Belum Dibayar', 'Menunggu Konfirmasi', 'Terkonfirmasi', 'Selesai'])->default('Belum Dibayar');
             $table->string('payment_receipt')->nullable();
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->unsignedBigInteger('total');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

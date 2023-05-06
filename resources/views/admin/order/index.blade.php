@@ -56,7 +56,7 @@
                                                         <a href="{{ route('admin.order.edit', $item->id) }}"
                                                             type="button" class="btn btn-primary me-3">Detail</a>
                                                         <form method="POST"
-                                                            {{-- action="{{ route('admin.order.destroy', $item->id) }}"> --}}
+                                                            action="{{ route('admin.order.destroy', $item->id) }}">
                                                             @csrf
                                                             <button type="submit"
                                                                 class="btn btn-xs btn-danger btn-flat show_confirm"

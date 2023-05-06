@@ -47,11 +47,11 @@ Route::middleware(AdminCheck::class)->group(function () {
         Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('edit');
         Route::post('/order/{id}/confirm', [OrderController::class, 'confirm'])->name('confirm');
         Route::post('/edit/{id}/complete', [OrderController::class, 'complete'])->name('complete');
+        Route::post('/destroy/{id}', [OrderController::class, 'destroy'])->name('destroy');
 
         // Route::get('/create', [CategorysController::class, 'create'])->name('create');
         // Route::post('/store', [CategorysController::class, 'store'])->name('store');
         // Route::post('/detail/{id}', [CategorysController::class, 'show'])->name('detail');
         // Route::post('/update/{id}', [CategorysController::class, 'update'])->name('update');
-        // Route::post('/destroy/{id}', [CategorysController::class, 'destroy'])->name('destroy');
     });
 });

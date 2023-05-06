@@ -83,6 +83,13 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+        foreach ($order->transactions as $trash) {
+            Product::destroy($trash);
+        }
+        Order::destroy($id);
+
+        Alert::success('Order berhasil dihapus!');
+        return redirect()->route('admin.order.index');
     }
 }
