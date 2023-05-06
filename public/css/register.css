@@ -1,4 +1,4 @@
-.register {
+    .register {
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     margin-top: 3%;
     padding: 3%;
@@ -124,3 +124,8 @@
     margin-bottom: -15%;
     color: #495057;
 }
+
+.text-white {
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity))!important;
+    font-size: 35px;

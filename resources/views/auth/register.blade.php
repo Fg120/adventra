@@ -5,91 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register - Adventra</title>
+    <title>Register - Adventra</title> 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" type="text/css" href="css/css.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!------ Include the above in your HEAD tag ---------->
 </head>
 
 <body>
-    {{-- @include('sweetalert::alert') --}}
-    {{-- <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-                <div class="col-md-6">
-                    <a class="navbar-brand" href="{{ route('home.index') }}">
-                        <img src="{{ asset('img/home/logo.png') }}" alt="Bootstrap" width="30" height="30">
-                    </a>
-                </div>
-                <ul class="navbar-nav col-lg-6 justify-content-lg-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home.index') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang Kami</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#footer">Kontak</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQ</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
-
-    <div class="atas">
-        <div class="bungkus">
-            <div class="kiri">
-                <h3> <b> ADVENTRA</b> </h3>
-            </div>
-            <form action="{{ route('login') }}" method="post">
-                @include('sweetalert::alert')
-                <div class="kanan">
-                    <div class="user">
-                        <div class="judul">
-                            Email atau Telepon
-                        </div>
-                        @csrf
-                        <div class="input">
-                            <input type="email" class="form-control" placeholder="Email" value="{{ old('email') }}"
-                                name="email" />
-                            @error('email')
-                                <p class="text-danger fs-6">{{ $message }}</p>
-                            @enderror
-                        </div>
+    @include('sweetalert::alert')
+    <nav class="navbar bg-primary background:blue">
+        <div class="container-sm">
+            <a class="navbar-brand text-white"
+                href="{{ route('home.index') }}"<h2 class="fw-bold">ADVENTRA</h2>
+            </a>
+            <form class="d-flex" action="{{ route('login') }}" method="post">
+                @csrf
+                <div class="row">
+                    <div class="col-md-5">
+                        <input name="email" class="form-control me-2" type="email" placeholder="Email">
                     </div>
-                    <div class="user" style="margin-right: 2px;">
-                        <div class="judul">
-                            Kata Sandi
-                        </div>
-                        <div class="input">
-                            <input type="password" class="form-control" placeholder="Password"
-                                value="{{ old('password') }}" name="password" />
-                            @error('password')
-                                <p class="text-danger fs-6">{{ $message }}</p>
-                            @enderror
-                        </div>
+                    <div class="col-md-5">
+                        <input name="password" class="form-control me-2" type="password" placeholder="Password">
                     </div>
-                    <div>
-                        <a href="{{ route('login') }}">
-                            <input type="submit" id="sidebutton" style="margin-left:400px;" value="Login">
-                        </a>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-light"  type="submit"
+              style="padding-left: 6 rem; padding-right: 6 rem;">Login</button>
+                      
                     </div>
                 </div>
             </form>
-            </div>
         </div>
-    </div>
-
-    <div class="container register" style="max-width: 1440px;">
+    </nav>
+  
+    <div class="container register" style="max-width: 100%;">
         <div class="row">
             <div class="col-md-3 register-left">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 <img src="/img/home/logo.png" alt="" />
                 <h3> Adventra</h3>
                 <p>Adventuring Worry-Free With Us!</p>
@@ -112,7 +75,8 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel"
+                        aria-labelledby="home-tab">
                         <h3 class="register-heading">Register</h3>
                         <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                             <div class="register-form">

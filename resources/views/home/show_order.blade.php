@@ -40,9 +40,11 @@
                                                 <label>Upload your payment receipt</label>
                                                 <input type="file" name="payment_receipt" class="form-control">
                                             </div>
+                                           
                                             <button type="submit" class="btn btn-primary mt-3">Submit payment</button>
                                         </form>
                                     @endif
+                                    <br>
                                     <a href="{{route('home.index')}}" class="btn btn-primary">Home</a>
                                 </div>
                             </div>
