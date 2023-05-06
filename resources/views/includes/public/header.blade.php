@@ -1,5 +1,5 @@
 <header id="header" class="fixed-top ">
-    <div class="container-fluid d-flex align-items-center">
+    <div class="container d-flex align-items-center">
 
         <h1 class="logo me-auto"><a href="{{ route('home.index') }}">Adventra</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
@@ -20,8 +20,8 @@
                             @endif
                             @if (Auth()->user()->role == 'user')
                                 <li><a href="#">Akun Saya</a></li>
-                                <li><a href="#">Keranjang</a></li>
-                                <li><a href="#">Pesanan</a></li>
+                                <li><a href="{{route('cart.show')}}">Keranjang</a></li>
+                                <li><a href="{{route('order.index')}}">Pesanan</a></li>
                             @endif
                             <li>
                                 <form action="{{ route('logout') }}" method="post" id="logout">
@@ -36,8 +36,8 @@
                 </ul>
                 </li>
             @else
-                <li><a class="nav-link scrollto" href="{{ route('login') }}">Login</a></li>
-                <li><a class="getstarted scrollto" href="{{ route('register') }}">Sewa Sekarang</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('auth') }}">Login</a></li>
+                <li><a class="getstarted scrollto" href="{{ route('auth') }}">Sewa Sekarang</a></li>
             @endauth
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

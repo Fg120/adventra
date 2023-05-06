@@ -24,7 +24,7 @@
                                     @foreach ($orders as $order)
                                         <div class="card mb-2" style="width: 30rem;">
                                             <div class="card-body">
-                                                <a href="{{ route('show_order', $order) }}">
+                                                <a href="{{ route('order.show', $order) }}">
                                                     <h5 class="card-title">Order ID {{ $order->id }}</h5>
                                                 </a>
                                                 <h6 class="card-subtitle mb-2 text-muted">By {{ $order->user->name }}</h6>

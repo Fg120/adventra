@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 
 class OrderController extends Controller
 {
-    public function checkout()
+    public function checkout(Request $request)
     {
         $user_id = Auth::id();
         $carts = Cart::where('user_id', $user_id)->get();
@@ -22,10 +22,26 @@ class OrderController extends Controller
             return Redirect::back();
         }
 
+        ///CREATE ORDER///
+        $totals = 0;
+        foreach ($carts as $cart) {
+            $product = Product::find($cart->product_id);
+            $totals += $product->price * $cart->amount;
+        }
+        $totals = $totals * $request->day;
+        
+        $date=date_create("$request->start_date");
+        $end_date = date_add($date, date_interval_create_from_date_string("$request->day days"));
+
         $order = Order::create([
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'day' => $request->day,
+            'start_date' => $request->start_date,
+            'end_date' => $end_date,
+            'total' => $totals,
         ]);
 
+        ///CREATE TRANSACTIONS/// 
         foreach ($carts as $cart) {
             $product = Product::find($cart->product_id);
             $product->update([
@@ -41,10 +57,10 @@ class OrderController extends Controller
             $cart->delete();
         }
 
-        return Redirect::route('show_order', $order);
+        return Redirect::route('order.show', $order);
     }
 
-    public function show_order(Order $order)
+    public function show(Order $order)
     {
         $user = Auth::user();
         $admin = $user->is_admin;
@@ -57,7 +73,7 @@ class OrderController extends Controller
     }
 
 
-    public function submit_payment_receipt(Order $order, Request $request)
+    public function pay(Order $order, Request $request)
     {
         $file = $request->file('payment_receipt');
         $path = time() . '_' . $order->id . '.' . $file->getClientOriginalExtension();
@@ -72,7 +88,7 @@ class OrderController extends Controller
         return Redirect::back();
     }
 
-    public function index_order()
+    public function index()
     {
         $user = Auth::user();
 

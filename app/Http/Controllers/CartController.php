@@ -15,7 +15,7 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
-    public function add_to_cart(Product $products, Request $request)
+    public function create(Product $products, Request $request)
     {
         $user_id = Auth::id();
         $product_id = $products->id;
@@ -45,20 +45,22 @@ class CartController extends Controller
             ]);
         }
 
-        return Redirect::route('show_cart');
+        return Redirect::route('cart.show');
     }
 
-    public function show_cart()
+    public function show()
     {
         $user_id = Auth::id();
         $carts = Cart::where('user_id', $user_id)->get();
-        // return view('home.show_cart', [
-        //     'carts' => $carts,
-        // ]);
-        return view('home.show_cart', compact('carts'));
+// dd($carts);
+
+        $date = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")+1, date("Y")));
+        $date_max = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")+14, date("Y")));
+
+        return view('home.show_cart', compact('carts', 'date', 'date_max'));
     }
 
-    public function update_cart(Cart $cart, Request $request)
+    public function update(Cart $cart, Request $request)
     {
         $request->validate([
             'amount' => 'required|gte:1|lte:' . $cart->product->stock_available
@@ -68,12 +70,12 @@ class CartController extends Controller
             'amount' => $request->amount
         ]);
 
-        return Redirect::route('show_cart');
+        return Redirect::route('cart.show');
     }
 
-    public function delete_cart(Cart $cart)
+    public function destroy(Cart $cart)
     {
         $cart->delete();
-        return Redirect::route('show_cart');
+        return Redirect::route('cart.show');
     }
 }

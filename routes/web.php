@@ -25,26 +25,33 @@ Route::get('test', function()
     return view('test');
 });
 
-Route::get('/register', [RegisterController::class, 'index']) -> name('register');
-Route::POST('/register/store', [RegisterController::class, 'store'])->name('register.store');
+// Route::get('/register', [RegisterController::class, 'index']) -> name('register');
+// Route::POST('/register/store', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('login', [LoginController::class, 'create'])->name('login');
+// Route::get('login', [LoginController::class, 'create'])->name('login');
+// Route::post('login', [LoginController::class, 'store'])->name('login');
+
+Route::get('login', function () {
+    return redirect('auth');
+});
+
+Route::get('auth', [LoginController::class, 'create'])->name('auth');
+Route::post('register', [RegisterController::class, 'store'])->name('register');
 Route::post('login', [LoginController::class, 'store'])->name('login');
-
 Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
 
 Route::get('register', [RegisterController::class, 'create'])->name('register');
 Route::post('register', [RegisterController::class, 'store'])->name('register');
 
 Route::middleware('auth')->group(function() {
-    Route::post('/cart/{products}', [CartController::class, 'add_to_cart'])->name('add_to_cart');
-    Route::get('/cart', [CartController::class, 'show_cart'])->name('show_cart');
-    Route::patch('/cart/{cart}', [CartController::class, 'update_cart'])->name('update_cart');
-    Route::delete('/cart/{cart}', [CartController::class, 'delete_cart'])->name('delete_cart');
+    Route::post('/cart/{products}', [CartController::class, 'create'])->name('cart.create');
+    Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+    Route::patch('/cart/{cart}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
     Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
-    Route::get('/order', [OrderController::class, 'index_order'])->name('index_order');
-    Route::get('/order/{order}', [OrderController::class, 'show_order'])->name('show_order');
-    Route::post('/order/{order}/pay', [OrderController::class, 'submit_payment_receipt'])->name('submit_payment_receipt');
+    Route::get('/order', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::post('/order/{order}/pay', [OrderController::class, 'pay'])->name('order.pay');
     Route::get('/profile', [ProfileController::class, 'show_profile'])->name('show_profile');
     Route::post('/profile', [ProfileController::class, 'edit_profile'])->name('edit_profile');
   });

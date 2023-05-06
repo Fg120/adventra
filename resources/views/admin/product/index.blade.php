@@ -51,7 +51,7 @@
                                                         <span class="d-inline-block text-truncate"
                                                             style="max-width: 150px">{{ $item->desc }}</span>
                                                     </td>
-                                                    <td>{{ $item->price }} K</td>
+                                                    <td>{{ $item->price }}</td>
                                                     <td>{{ $item->stock_available }}</td>
                                                     <td>{{ $item->stock_true }}</td>
                                                     <td class="d-flex">

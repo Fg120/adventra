@@ -13,9 +13,13 @@
                     <h1>Adventuring Worry-Free With Us!</h1>
                     <h2>Our Partner in 30+ cities ready to rent you adventure equipment need!</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#about" class="btn-get-started scrollto">Sewa Sekarang</a>
-                        <a href="https://youtu.be/vky7F5OK5Zk" class="glightbox btn-watch-video"><i
-                                class="bi bi-play-circle"></i><span>Watch Video</span></a>
+                        @auth
+                            <a href="{{ route('home.product') }}" class="btn-get-started scrollto">Sewa Sekarang</a>
+                        @else
+                            <a href="{{ route('auth') }}" class="btn-get-started scrollto">Sewa Sekarang</a>
+                        @endauth
+                        {{-- <a href="https://youtu.be/vky7F5OK5Zk" class="glightbox btn-watch-video"><i
+                                class="bi bi-play-circle"></i><span>Watch Video</span></a> --}}
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -128,150 +132,32 @@
                     <div class="section-title">
                         <h2>PRODUK</h2>
 
+                        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                            @foreach ($products as $item)
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->id_category }}">
+                                    <div class="portfolio-img"><img src="{{ asset('storage/' . $item->photo) }}"
+                                            class="img-fluid" alt=""></div>
+                                    <div class="portfolio-info">
+                                        <h4>{{ $item->name }}</h4>
+                                        <p>{{ $item->fkCategory->name }}</p>
+                                        <a href="{{ asset('storage/' . $item->photo) }}" data-gallery="portfolioGallery"
+                                            class="portfolio-lightbox preview-link" title="{{ $item->name }}"><i
+                                                class="bx bx-plus"></i></a>
+                                        <a href="{{ route('home.view', $item->id) }}" class="details-link"
+                                            title="More Details"><i class="bx bx-link"></i></a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up"
                             data-aos-delay="100">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">Tenda</li>
-                            <li data-filter=".filter-app">Pakaian</li>
-                            <li data-filter=".filter-card">Alat Masak</li>
-                            <li data-filter=".filter-web">Slepping Bag</li>
-                            <li data-filter=".filter-tas">Matrass</li>
+                            <a href="{{ route('home.product') }}" class="btn btn-primary">Lainnya...</a>
+                            {{-- <li data-filter="*" class="filter-active">All</li> --}}
                         </ul>
-
-                        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-1.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>App 1</h4>
-                                    <p>App</p>
-                                    <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="App 1"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-2.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>Web 3</h4>
-                                    <p>Web</p>
-                                    <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-3.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>App 2</h4>
-                                    <p>App</p>
-                                    <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="App 2"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-4.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>Card 2</h4>
-                                    <p>Card</p>
-                                    <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="Card 2"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-5.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>Web 2</h4>
-                                    <p>Web</p>
-                                    <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="Web 2"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-6.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>App 3</h4>
-                                    <p>App</p>
-                                    <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="App 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-7.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>Card 1</h4>
-                                    <p>Card</p>
-                                    <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="Card 1"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-8.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>Card 3</h4>
-                                    <p>Card</p>
-                                    <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="Card 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 portfolio-item filter-tas">
-                                <div class="portfolio-img"><img src="assets/img/portfolio/portfolio-9.jpg"
-                                        class="img-fluid" alt=""></div>
-                                <div class="portfolio-info">
-                                    <h4>Web 3</h4>
-                                    <p>Web</p>
-                                    <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
-                                        class="portfolio-lightbox preview-link" title="Web 3"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                            class="bx bx-link"></i></a>
-                                </div>
-                            </div>
-
-                        </div>
-
                     </div>
             </section><!-- End Portfolio Section -->
             <!-- ======= Pricing Section ======= -->
-           
+
 
             <!-- ======= Why Us Section ======= -->
             <section id="why-us" class="why-us section-bg">
@@ -489,60 +375,22 @@
 
                         <div class="col-lg-6 mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
                             <div class="member d-flex align-items-start">
-                                <div class="pic"><img src="assets/img/team/team-2.jpg" class="img-fluid"
+                                <div class="pic"><img src="img/home/user.png" class="img-fluid"
                                         alt=""></div>
                                 <div class="member-info">
-                                    <h4>Sarah Jhonson</h4>
+                                    <h4>Anwar Ibrahim</h4>
                                     <span>Product Manager</span>
                                     <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
                                     <div class="social">
                                         <a href=""><i class="ri-twitter-fill"></i></a>
                                         <a href=""><i class="ri-facebook-fill"></i></a>
                                         <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                                        <a href=""><i class="ri-linkedin-box-fill"></i> </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="member d-flex align-items-start">
-                                <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid"
-                                        alt=""></div>
-                                <div class="member-info">
-                                    <h4>William Anderson</h4>
-                                    <span>CTO</span>
-                                    <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 mt-4" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="member d-flex align-items-start">
-                                <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid"
-                                        alt=""></div>
-                                <div class="member-info">
-                                    <h4>Amanda Jepson</h4>
-                                    <span>Accountant</span>
-                                    <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
-                                    <div class="social">
-                                        <a href=""><i class="ri-twitter-fill"></i></a>
-                                        <a href=""><i class="ri-facebook-fill"></i></a>
-                                        <a href=""><i class="ri-instagram-fill"></i></a>
-                                        <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-
                 </div>
             </section><!-- End Team Section -->
 
@@ -584,7 +432,7 @@
 
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.400752859682!2d113.71039277529795!3d-8.162317091868417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6955f324eacef%3A0x15cfbb5232694a7e!2sEJSC%20(East%20Java%20Super%20Coridor)%20JEMBER!5e0!3m2!1sid!2sid!4v1681466698823!5m2!1sid!2sid"
-                                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
 

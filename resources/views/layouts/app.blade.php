@@ -30,7 +30,15 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
-
+    <style>
+        .produk {
+            display: block;
+            max-width: 230px;
+            max-height: 95px;
+            width: auto;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,7 +50,7 @@
     <!-- ======= Content ======= -->
     @yield('content')
     <!-- ======= End Content ======= -->
-    
+
 
     <!-- ======= Footer ======= -->
     @include('includes.public.footer')

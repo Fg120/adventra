@@ -27,23 +27,23 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <div class="input-group mb-3">
+                                        <div class="input-group mb-3 shadow">
                                             <span class="input-group-text" id="basic-addon1">Order ID</span>
                                             <span class="form-control">{{ $order->id }}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="input-group mb-3">
+                                        <div class="input-group mb-3 shadow">
                                             <span class="input-group-text" id="basic-addon1">Order By</span>
                                             <span class="form-control">{{ $order->user->name }}</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="input-group mb-3">
+                                        <div class="input-group mb-3 shadow">
                                             <span class="input-group-text" id="basic-addon1">Status</span>
                                             <span
                                                 class="form-control 
-                                            @if ($order->status == 'Belum Dibayar') bg-secondary @endif
+                                            @if ($order->status == 'Belum Dibayar') bg-secondary text-white @endif
                                             @if ($order->status == 'Menunggu Konfirmasi') bg-warning text-white @endif
                                             @if ($order->status == 'Terkonfirmasi') bg-info text-white @endif
                                             @if ($order->status == 'Selesai') bg-success text-white @endif
@@ -55,12 +55,9 @@
                                     <h3>Detail Transaksi</h3>
                                     @foreach ($order->transactions as $transaction)
                                         <p>{{ $transaction->product->name }} - {{ $transaction->amount }} pcs</p>
-                                        @php
-                                            $total_price = $transaction->product->price * $transaction->amount;
-                                        @endphp
                                     @endforeach
                                     <hr>
-                                    <p>Total: Rp. {{ number_format($total_price) }}</p>
+                                    <p>Total: Rp. {{ number_format($order->total) }}</p>
                                     <hr>
                                     {{-- <div class="col-md-6"> --}}
                                         <div class="input-group mb-3">
