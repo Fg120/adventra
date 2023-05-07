@@ -36,7 +36,7 @@
                         <input name="password" class="form-control me-2" type="password" placeholder="Password">
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-light"  type="submit"
+                        <button type="submit" class="btn btn-light" 
               style="padding-left: 6 rem; padding-right: 6 rem;">Login</button>
                       
                     </div>

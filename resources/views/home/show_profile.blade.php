@@ -1,3 +1,17 @@
+@extends('layouts.app')
+
+@section('title', 'Product')
+
+@section('content')
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center" style="height: 5px">
+
+    </section><!-- End Hero -->
+
+    <main id="main">
+    
+
 <section style="background-color: #eee;">
     <div class="container py-5">
       <div class="row">
