@@ -19,7 +19,7 @@
                                 <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             @endif
                             @if (Auth()->user()->role == 'user')
-                                <li><a href="#">Akun Saya</a></li>
+                                <li><a href="{{route('user_profile')}}">Akun Saya</a></li>
                                 <li><a href="{{route('cart.show')}}">Keranjang</a></li>
                                 <li><a href="{{route('order.index')}}">Pesanan</a></li>
                             @endif

@@ -5,6 +5,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProfileController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +55,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
     Route::post('/order/{order}/pay', [OrderController::class, 'pay'])->name('order.pay');
-    Route::get('/profile', [ProfileController::class, 'show_profile'])->name('show_profile');
-    Route::post('/profile', [ProfileController::class, 'edit_profile'])->name('edit_profile');
   });
+
+Route::get('/user_profile', [ProfileController::class, 'user_profile'])->name('user_profile');
+Route::post('/user_profile', [ProfileController::class, 'user_profile'])->name('user_profile');
+
+Route::get('/edituser', [ProfileController::class, 'edituser'])->name('edituser');
