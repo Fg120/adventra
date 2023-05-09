@@ -32,14 +32,9 @@
             <div class="card-body text-center">
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3" > value="{{ auth()->user()->name}}"></h5>
-              <p class="text-muted mb-1"> value="{{ auth()->user()->nik}}</p>
-              <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-
-              <div class="d-flex justify-content-center mb-2">
-                <a href="{{ route('edituser') }}" class="btn btn-primary">Edit Profile</a>
-            </div>
-              
+              <h5 class="my-3" > {{ Auth::user()->name}}</h5>
+              <b class="text-muted mb-1"> NIK : {{ Auth::user()->nik}}</b>
+              <p class="text-muted mb-4">{{ Auth::user()->regency}} - {{ Auth::user()->province}}</p> 
             </div>
           </div>
           
@@ -98,7 +93,7 @@
 
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">Kota</p>
+                  <p class="mb-0">Kecamatan</p>
                 </div>
                 <div class="col-sm-9">
                   <input type="text" name='city' class="form-control" placeholder="City" value="{{ auth()->user()->city}}">

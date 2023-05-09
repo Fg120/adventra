@@ -125,39 +125,6 @@
                 </div>
 
             </div>
-            <!-- ======= Portfolio Section ======= -->
-            <section id="portfolio" class="portfolio">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-title">
-                        <h2>PRODUK</h2>
-
-                        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-                            @foreach ($products as $item)
-                                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->id_category }}">
-                                    <div class="portfolio-img"><img src="{{ asset('storage/' . $item->photo) }}"
-                                            class="img-fluid" alt=""></div>
-                                    <div class="portfolio-info">
-                                        <h4>{{ $item->name }}</h4>
-                                        <p>{{ $item->fkCategory->name }}</p>
-                                        <a href="{{ asset('storage/' . $item->photo) }}" data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox preview-link" title="{{ $item->name }}"><i
-                                                class="bx bx-plus"></i></a>
-                                        <a href="{{ route('home.view', $item->id) }}" class="details-link"
-                                            title="More Details"><i class="bx bx-link"></i></a>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <a href="{{ route('home.product') }}" class="btn btn-primary">Lainnya...</a>
-                            {{-- <li data-filter="*" class="filter-active">All</li> --}}
-                        </ul>
-                    </div>
-            </section><!-- End Portfolio Section -->
-            <!-- ======= Pricing Section ======= -->
-
 
             <!-- ======= Why Us Section ======= -->
             <section id="why-us" class="why-us section-bg">
@@ -231,108 +198,139 @@
                 </div>
             </section><!-- End Why Us Section -->
 
+             <!-- ======= Cta Section ======= -->
+ <section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
 
-            <!-- ======= Cta Section ======= -->
-            <section id="cta" class="cta">
-                <div class="container" data-aos="zoom-in">
+        <div class="row">
+           
+        </div>
 
-                    <div class="row">
-                        <div class="col-lg-9 text-center text-lg-start">
-                            <h3>Call To Action</h3>
-                            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum.</p>
+    </div>
+</section><!-- End Cta Section -->
+            <!-- ======= Portfolio Section ======= -->
+            <section id="portfolio" class="portfolio">
+                <div class="container" data-aos="fade-up">
+
+                    <div class="section-title">
+                        <h2>PRODUK</h2>
+
+                        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                            @foreach ($products as $item)
+                                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->id_category }}">
+                                    <div class="portfolio-img"><img src="{{ asset('storage/' . $item->photo) }}"
+                                            class="img-fluid" alt=""></div>
+                                    <div class="portfolio-info">
+                                        <h4>{{ $item->name }}</h4>
+                                        <p>{{ $item->fkCategory->name }}</p>
+                                        <a href="{{ asset('storage/' . $item->photo) }}" data-gallery="portfolioGallery"
+                                            class="portfolio-lightbox preview-link" title="{{ $item->name }}"><i
+                                                class="bx bx-plus"></i></a>
+                                        <a href="{{ route('home.view', $item->id) }}" class="details-link"
+                                            title="More Details"><i class="bx bx-link"></i></a>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="col-lg-3 cta-btn-container text-center">
-                            <a class="cta-btn align-middle" href="#">Call To Action</a>
-                        </div>
+                        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up"
+                            data-aos-delay="100">
+                            <a href="{{ route('home.product') }}" class="btn btn-primary">Lainnya...</a>
+                            {{-- <li data-filter="*" class="filter-active">All</li> --}}
+                        </ul>
                     </div>
+            </section><!-- End Portfolio Section -->
+            <!-- ======= Pricing Section ======= -->
 
-                </div>
-            </section><!-- End Cta Section -->
 
+
+                   
             <!-- ======= Frequently Asked Questions Section ======= -->
             <section id="faq" class="faq section-bg">
                 <div class="container" data-aos="fade-up">
 
                     <div class="section-title">
-                        <h2>Bantuan</h2>
-                        <p>Informasi dan Petunjuk Penyewaan Peralatan Camping di Adventra.</p>
+                        <h2>Rental FAQ</h2>
+                        <p> Information and Instruction for Camping Equipment Rental at Adventra</p>
                     </div>
 
                     <div class="faq-list">
                         <ul>
                             <li data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                                    data-bs-target="#faq-list-1">Non consectetur a erat nam at lectus
-                                    urna duis? <i class="bx bx-chevron-down icon-show"></i><i
+                                    data-bs-target="#faq-list-1">How Do I Become a Rental Member? 
+                                <i class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                                     <p>
-                                        Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus
-                                        laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
-                                        rhoncus dolor purus non.
-                                    </p>
+                                        When renting from us for the first time, you will need to fill in our Sign-up form (Sewa Sekarang).
+                                        We also need some forms of identification. 
+                                        You can find the full details and the rental agreement sign up
                                 </div>
                             </li>
 
                             <li data-aos="fade-up" data-aos-delay="200">
                                 <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                    data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi
-                                    enim nunc? <i class="bx bx-chevron-down icon-show"></i><i
+                                    data-bs-target="#faq-list-2" class="collapsed">How Long is a Rental Day? <i class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                                     <p>
-                                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id
-                                        interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus
-                                        scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-                                        Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                                        Pick up is from 3pm the day before your booking and return before 10am the day after your booking. 
+                                        For example: if you book for Wednesday 
+                                        Pick up after 3pm on the Tuesday 
+                                        Return before 10am on the Thursday
+                                        (Rentals over the weekend are charged as a one day rate when picked up after 3pm on the Friday.)
                                     </p>
                                 </div>
                             </li>
 
                             <li data-aos="fade-up" data-aos-delay="300">
                                 <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                    data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur
-                                    adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i
+                                    data-bs-target="#faq-list-3" class="collapsed">Can I have My Item Couriered? <i class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                                     <p>
-                                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci.
-                                        Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
-                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis
-                                        convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+                                        Yes. For couriers going outside of Jember, a minimum 2 day charge and 2 way courier fees apply. 
+                                        We will require at least 3 days notice and full payment must be made before your rental start date. 
+                                        This is to ensure that your rental equipment can be delivered in time for your shoot. 
+                                        Same day service within Jember may also be possible. 
                                     </p>
                                 </div>
                             </li>
 
                             <li data-aos="fade-up" data-aos-delay="400">
                                 <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                    data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam
-                                    aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i
+                                    data-bs-target="#faq-list-4" class="collapsed">I'm a New Customer but I don’t live in Jember, can I still rent? <i class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                                     <p>
-                                        Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim
-                                        suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan.
-                                        Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit
-                                        turpis cursus in.
+                                        Yes, when renting from us for the first time and are unable to visit us in store,
+                                        you will be required to have the requested identifications sighted and signed by a Justice of the Peace.
                                     </p>
                                 </div>
                             </li>
 
                             <li data-aos="fade-up" data-aos-delay="500">
                                 <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                    data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus ornare.
-                                    Varius vel pharetra vel turpis nunc eget lorem dolor? <i
+                                    data-bs-target="#faq-list-5" class="collapsed">Do I need to show my ID every time I come in? <i
                                         class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                                     <p>
-                                        Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies
-                                        leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet.
-                                        Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu
-                                        scelerisque.
+                                        No, we only take a copy of your ID's the first time you come in. 
+                                        However, if you move, we will need to update your proof of address.
+                                    </p>
+                                </div>
+                            </li>
+
+                            <li data-aos="fade-up" data-aos-delay="500">
+                                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                                    data-bs-target="#faq-list-5" class="collapsed">What Are Your Opening Hours? <i
+                                        class="bx bx-chevron-down icon-show"></i><i
+                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                                    <p>
+                                        Monday - Friday: 8am - 5:30pm. Saturday: 8:30am - 2pm. Sunday: 5pm - 8:30pm.
+                                         Closed Public Holidays.
                                     </p>
                                 </div>
                             </li>
@@ -349,9 +347,9 @@
 
                     <div class="section-title">
                         <h2>Team</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
-                            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
-                            alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <p> Here are some of our team members Adventra. If you need help regarding our product and so on,
+                            you can contact some of our team's social media which are included below. Thank You
+                    </p>
                     </div>
 
                     <div class="row">
@@ -362,7 +360,8 @@
                                 </div>
                                 <div class="member-info">
                                     <h4>Raditya Mulya Nugroho</h4>
-                                    <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+                                    <span>Product Manager</span>
+                                    <p>Aut maiores voluptates amet et quis praesentium qui senda para</p>
                                     <div class="social">
                                         <a href=""><i class="ri-twitter-fill"></i></a>
                                         <a href=""><i class="ri-facebook-fill"></i></a>
@@ -402,9 +401,18 @@
 
                     <div class="section-title">
                         <h2>Contact</h2>
-                        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
-                            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
-                            alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                        <p>Opening Hours
+
+                            Monday - Friday 
+                            8am - 5:30pm
+                            
+                            Saturday 
+                            8:30am - 2pm
+                            
+                            Sunday 
+                            5pm - 8:30pm
+                            
+                            *Closed Public Holidays.</p>
                     </div>
 
                     <div class="row">

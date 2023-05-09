@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -15,17 +16,6 @@ class ProfileController extends Controller
         return view('home.profileuser', compact('users'));
     }
 
-    public function edituser(Request $request , $id)
-    {
-        $user = User::find($id);
-        return view('home.edituser', compact('user'));
-    }
-
-
-    public function create()
-    {
-        return view('admin.user.create');
-    }
 
     public function store(Request $request)
     {
@@ -126,59 +116,4 @@ class ProfileController extends Controller
         //
     }
 
- 
-    public function update(Request $request, $id)
-    {
-        $user = User::find($id);
-        if ($request->id_photo != '') {
-            Storage::delete('public/' . $user->id_photo);
-            $file = $request->file('id_photo');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-
-            $photo_path = $request->file('id_photo')->storeAs('public/user/id', $filename);
-            //menghapus string 'public/' karena dapat menyulitkan pemanggilan di blade.
-            $photo_path = str_replace('public/', '', $photo_path);
-        }
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone_number = $request->phone_number;
-        $user->password = bcrypt($request->password);
-        // $user->province = $request->province;
-        // $user->regency = $request->regency;
-        // $user->city = $request->city;
-        // $user->village = $request->village;
-        $user->address = $request->address;
-        $user->gender = $request->gender;
-        $user->nik = $request->nik;
-        $user->role = $request->role;
-        if ($request->id_photo != '') {
-            $user->id_photo = $photo_path;
-        }
-        $user->save();
-
-        Alert::success('User berhasil diupdate');
-        return redirect()->route('admin.user.index');
-    }
-
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        if ($user->photo != null) {
-            try {
-                Storage::delete('public/' . $user->photo);
-                $user->delete();
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
-        } elseif ($user->photo == null) {
-            try {
-                $user->delete();
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
-        }
-        Alert::success('User berhasil dihapus');
-        return redirect()->route('admin.user.index');
-    }
 }

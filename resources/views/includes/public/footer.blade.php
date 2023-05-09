@@ -6,10 +6,11 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>ADVENTRA</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
+              East Java Super Corridor (EJSC) <br>
+              Kalimantan Street 42, Sumbersari<br>
+              Jember - East Java 68121 
+              Indonesia  <br><br>
+              <strong>Phone:</strong> +62 812 3274 0593<br>
               <strong>Email:</strong> adventra@adventra.com<br>
             </p>
           </div>
@@ -18,16 +19,16 @@
             <h4>Useful Links</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Produk</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sewa Sekarang</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Our Product</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Slepping Bag</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tenda</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
@@ -36,13 +37,11 @@
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+            <p> You can see some of our newest products by following us on Instagram</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              
             </div>
           </div>
 
@@ -52,7 +51,7 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        © Copyright <strong><span>ADVENTRA</span></strong>. All Rights Reserved
+        © 2023 <strong><span>ADVENTRA</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer>

@@ -60,4 +60,3 @@ Route::middleware('auth')->group(function() {
 Route::get('/user_profile', [ProfileController::class, 'user_profile'])->name('user_profile');
 Route::post('/user_profile', [ProfileController::class, 'user_profile'])->name('user_profile');
 
-Route::get('/edituser', [ProfileController::class, 'edituser'])->name('edituser');
