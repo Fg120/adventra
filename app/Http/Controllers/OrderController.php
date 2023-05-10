@@ -29,7 +29,7 @@ class OrderController extends Controller
             $totals += $product->price * $cart->amount;
         }
         $totals = $totals * $request->day;
-        
+
         $date=date_create("$request->start_date");
         $end_date = date_add($date, date_interval_create_from_date_string("$request->day days"));
 
@@ -41,7 +41,7 @@ class OrderController extends Controller
             'total' => $totals,
         ]);
 
-        ///CREATE TRANSACTIONS/// 
+        ///CREATE TRANSACTIONS///
         foreach ($carts as $cart) {
             $product = Product::find($cart->product_id);
             $product->update([
@@ -66,6 +66,7 @@ class OrderController extends Controller
         $admin = $user->is_admin;
 
         if ($admin || $order->user_id == $user->id) {
+
             return view('home.show_order', compact('order'));
         }
 

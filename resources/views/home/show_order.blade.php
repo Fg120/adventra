@@ -23,6 +23,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Order ID {{ $order->id }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">By {{ $order->user->name }}</h6>
+                                    <p class="card-text">Barang dapat di ambil pada tanggal: {{ date('d F Y', strtotime($order->start_date)) }}</p>
                                     <p class="card-text">{{ $order->status }}</p>
                                     <hr>
                                     @foreach ($order->transactions as $transaction)
@@ -32,7 +33,7 @@
                                     <p>Total: Rp. {{ number_format($order->total) }}</p>
                                     <hr>
 
-                                    @if ($order->is_paid == false && $order->payment_receipt == null && !Auth::user()->is_admin)
+                                    @if ($order->payment_receipt == null)
                                         <form action="{{ route('order.pay', $order) }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
@@ -52,16 +53,11 @@
                     </div>
                 </div>
                 <section id="services" class="services section-bg">
-                    <div class="container" data-aos="fade-up">
-
-
-
+                    <div class="container">
                         <div class="section-title">
                             <h2>PEMBAYARAN ADVENTRA</h2>
 
                             <h4> Anda Dapat Melakukan Pembayaran Dengan Mentransfer Ke Rekening Bank Kami Dibawah Ini</h4>
-
-
                         </div>
                         <div class="row">
                         <div class="col-xl-3 col-md-6  align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
