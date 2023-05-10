@@ -51,11 +51,33 @@ class RegisterController extends Controller
             'address.required' => 'Masukkan alamat lengkap!',
             'nik.required' => 'Masukkan NIK!',
         ]);
+
+        $file = $request->file('id_photo');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+
+        $photo_path = $request->file('id_photo')->storeAs('public/user/id', $filename);
+        //menghapus string 'public/' karena dapat menyulitkan pemanggilan di blade.
+
+        $photo_path = str_replace('public/', '', $photo_path);
         try {
+            $data = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'password' => bcrypt($request->password),
+                'province' => $request->province,
+                'regency' => $request->regency,
+                'city' => $request->city,
+                'village' => $request->village,
+                'address' => $request->address,
+                'gender' => $request->gender,
+                'nik' => $request->nik,
+                'id_photo' => $photo_path,
+            ];
             $attributes['password'] = bcrypt($attributes['password']);
-            $user = User::create($attributes);
-            // auth()->login($user);
-            alert::success('Akun berhasil dibuat','Silahkan login!');
+            $users = User::create($data);
+
+            alert::success('Akun berhasil dibuat', 'Silahkan login!');
             return redirect('/login');
         } catch (\Throwable $th) {
             //throw $th;
