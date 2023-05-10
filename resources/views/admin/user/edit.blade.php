@@ -208,7 +208,7 @@
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 @if ($user->id_photo != null)
-                                                    <div style="width: 200px;">
+                                                    <div style="width: 350px;">
                                                         <img src="{{ asset('storage/' . $user->id_photo) }}"
                                                             class="img-fluid" alt="">
                                                     </div>

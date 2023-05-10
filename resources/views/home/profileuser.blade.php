@@ -30,8 +30,7 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                class="rounded-circle img-fluid" style="width: 150px;">
+              <img src="{{ asset('storage/' . Auth::user()->id_photo) }}" alt="avatar" class="rounded img-fluid" style="width: 350px;">
               <h5 class="my-3" > {{ Auth::user()->name}}</h5>
               <b class="text-muted mb-1"> NIK : {{ Auth::user()->nik}}</b>
               <p class="text-muted mb-4">{{ Auth::user()->regency}} - {{ Auth::user()->province}}</p> 

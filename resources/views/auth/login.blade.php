@@ -21,10 +21,10 @@
 
 <body>
     @include('sweetalert::alert')
-    <nav class="navbar bg-primary background:blue">
+    <nav class="navbar"style="background: -webkit-linear-gradient(left, #3931af, #00c6ff)";>
         <div class="container-sm">
             <a class="navbar-brand text-white"
-                href="{{ route('home.index') }}"<h2 class="fw-bold">ADVENTRA</h2>
+                href="{{ route('home.index') }}" > <h2 class="fw-bold">ADVENTRA</h2>
             </a>
             <form class="d-flex" action="{{ route('login') }}" method="post">
                 @csrf
