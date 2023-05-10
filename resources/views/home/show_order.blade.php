@@ -64,11 +64,11 @@
 
                         </div>
                         <div class="row">
-                        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+                        <div class="col-xl-3 col-md-6  align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
                             data-aos-delay="200">
                             <div class="icon-box">
                                 <div class="icon"><img width="200" src="{{ asset('img/home/bri.png') }}"></img></div>
-                                <h4> BRI 
+                                <h4> BRI </h4>
                                 <p>  0374663836644 - PT ADVENTRA</p>
                             </div>
                         </div>
@@ -76,30 +76,27 @@
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
                             data-aos-delay="200">
                             <div class="icon-box">
-                                <div class="icon"><img width="200" src="{{ asset('img/home/bri.png') }}"></img></div>
-                                <h4> BRI</h4>
-                                <p>Tanpa harus menghubungi admin, Anda bisa cek ketersedian produk sewa, lihat di detail
-                                    produk dan sesuaikan jadwal Anda sebelum kehabisan</p>
+                                <div class="icon"><img width="200" src="{{ asset('img/home/bca.png') }}"></img></div>
+                                <h4> BCA</h4>
+                                <p> 2000286828 - PT ADVENTRA</p>
                             </div>
                         </div>
 
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
                             data-aos-delay="200">
                             <div class="icon-box">
-                                <div class="icon"><img width="200" src="{{ asset('img/home/bri.png') }}"></img></div>
-                                <h4> BRI</h4>
-                                <p>Tanpa harus menghubungi admin, Anda bisa cek ketersedian produk sewa, lihat di detail
-                                    produk dan sesuaikan jadwal Anda sebelum kehabisan</p>
+                                <div class="icon"><img width="200" src="{{ asset('img/home/mandiri.png') }}"></img></div>
+                                <h4> MANDIRI</h4>
+                                <p> 1430876389374 - PT ADVENTRA</p>
                             </div>
                         </div>
 
                         <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
                             data-aos-delay="200">
                             <div class="icon-box">
-                                <div class="icon"><img width="200" src="{{ asset('img/home/bri.png') }}"></img></div>
-                                <h4> BRI</h4>
-                                <p>Tanpa harus menghubungi admin, Anda bisa cek ketersedian produk sewa, lihat di detail
-                                    produk dan sesuaikan jadwal Anda sebelum kehabisan</p>
+                                <div class="icon"><img width="200" src="{{ asset('img/home/cimb.png') }}"></img></div>
+                                <h4> CIMB</h4>
+                                <p> 8600110011000 - PT ADVENTRA</p>
                             </div>
                         </div>
 
