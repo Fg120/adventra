@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register - Adventra</title> 
+    <title>Register - Adventra</title>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/register.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -36,15 +37,15 @@
                         <input name="password" class="form-control me-2" type="password" placeholder="Password">
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" class="btn btn-light"  
+                        <button type="submit" class="btn btn-light"
               style="padding-left: 6 rem; padding-right: 6 rem;">Login</button>
-                      
+
                     </div>
                 </div>
             </form>
         </div>
     </nav>
-  
+
     <div class="container register" style="max-width: 100%;">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -57,9 +58,9 @@
                 <h3> Adventra</h3>
                 <p>Adventuring Worry-Free With Us!</p>
                 <div>
-                    <label for="sidebutton">Already have account?</label>
-                    <a href="{{ route('register') }}">
-                        <input type="submit" id="sidebutton" style="margin-top: -10px" value="Login">
+                    <label for="sidebutton"><b>Back to home?</b></label><br>
+                    <a href="{{ route('home.index') }}">
+                        <input type="submit" id="sidebutton" style="margin-top: -10px" value="Home">
                     </a>
                 </div>
             </div>

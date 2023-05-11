@@ -55,7 +55,7 @@ class RegisterController extends Controller
         $file = $request->file('id_photo');
         $filename = time() . '.' . $file->getClientOriginalExtension();
 
-        $photo_path = $request->file('id_photo')->storeAs('public/storage/user/id', $filename);
+        $photo_path = $request->file('id_photo')->storeAs('public/user/id', $filename);
         //menghapus string 'public/' karena dapat menyulitkan pemanggilan di blade.
 
         $photo_path = str_replace('public/', '', $photo_path);
