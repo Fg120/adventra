@@ -1,5 +1,5 @@
 <footer id="footer">
-    <div class="footer-top">
+    {{-- <div class="footer-top">
       <div class="container">
         <div class="row">
 
@@ -8,7 +8,7 @@
             <p>
               East Java Super Corridor (EJSC) <br>
               Kalimantan Street 42, Sumbersari<br>
-              Jember - East Java 68121 
+              Jember - East Java 68121
               Indonesia  <br><br>
               <strong>Phone:</strong> +62 812 3274 0593<br>
               <strong>Email:</strong> adventra@adventra.com<br>
@@ -39,15 +39,15 @@
             <h4>Our Social Networks</h4>
             <p> You can see some of our newest products by following us on Instagram</p>
             <div class="social-links mt-3">
-      
+
               <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              
+
             </div>
           </div>
 
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
