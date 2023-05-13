@@ -63,10 +63,8 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $user = Auth::user();
-        $admin = $user->is_admin;
 
-        if ($admin || $order->user_id == $user->id) {
-
+        if ($order->user_id == $user->id) {
             return view('home.show_order', compact('order'));
         }
 

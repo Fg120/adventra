@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
+use DateTime;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -30,14 +31,6 @@ class OrderController extends Controller
 
     public function complete(Request $request, $id)
     {
-        // $orders = Order::all();
-        // $user_id = $orders->user_id;
-        // $carts = Cart::where('user_id', $user_id)->get();
-
-        // $order = Order::create([
-        //     'user_id' => $user_id
-        // ]);
-
         $order = Order::find($id);
         foreach ($order->transactions as $transaction) {
             $product = Product::find($transaction->product_id);
@@ -53,37 +46,41 @@ class OrderController extends Controller
         return redirect()->route('admin.order.index');
     }
 
-    public function create()
+    public function pickup(Request $request, $id)
     {
-        //
-    }
+        $order = Order::find($id);
+        $order->update([
+            'status' => 'Dipick Up',
+        ]);
 
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
+        Alert::success('Order telah dipick up');
+        return redirect()->route('admin.order.index');
     }
 
     public function edit($id)
     {
         $order = Order::find($id);
-        // $total_price = $order->product->price * $order->amount;
-        return view('admin.order.edit', compact('order'));
-    }
 
+        $date1 = new DateTime($order->end_date);
+        $date2 = new DateTime($order->start_date);
+        $day = $date1->diff($date2)->format("%d");
 
-    public function update(Request $request, $id)
-    {
-        //
+        $date = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d"), date("Y")));
+
+        return view('admin.order.edit', compact('order', 'day', 'date'));
     }
 
     public function destroy($id)
     {
         $order = Order::find($id);
+
+        foreach ($order->transactions as $transaction) {
+            $product = Product::find($transaction->product_id);
+            $product->update([
+                'stock_available' => $product->stock_available + $transaction->amount,
+            ]);
+        }
+
         foreach ($order->transactions as $trash) {
             Product::destroy($trash);
         }

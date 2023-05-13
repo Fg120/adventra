@@ -13,7 +13,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('home.index')}}">
                     <i class="bi bi-house align-text-bottom"></i>
-                    Home Publc
+                    Home Public
                 </a>
             </li>
             <li class="nav-item">

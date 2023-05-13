@@ -45,11 +45,12 @@
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->user->name }}</td>
                                                     <td><span
-                                                            class="badge 
-                                                        @if ($item->status == 'Belum Dibayar') text-bg-secondary @endif
-                                                        {{ ($item->status == 'Menunggu Konfirmasi') ? 'text-bg-warning' : '' }}
-                                                        {{ ($item->status == 'Terkonfirmasi') ? 'text-bg-info' : '' }}
-                                                        {{ ($item->status == 'Selesai') ? 'text-bg-success' : '' }}
+                                                            class="badge
+                                                        @if ($item->status == 'Belum Dibayar') text-bg-secondary text-white @endif
+                                                        {{ ($item->status == 'Menunggu Konfirmasi') ? 'text-bg-warning text-white' : '' }}
+                                                        {{ ($item->status == 'Terkonfirmasi') ? 'text-bg-info text-white' : '' }}
+                                                        {{ ($item->status == 'Dipick Up') ? 'text-bg-primary text-white' : '' }}
+                                                        {{ ($item->status == 'Selesai') ? 'text-bg-success text-white' : '' }}
                                                             ">{{ $item->status }}</span>
                                                     </td>
                                                     <td class="d-flex">

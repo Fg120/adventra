@@ -42,7 +42,7 @@
                                         <div class="input-group mb-3 shadow">
                                             <span class="input-group-text" id="basic-addon1">Status</span>
                                             <span
-                                                class="form-control 
+                                                class="form-control
                                             @if ($order->status == 'Belum Dibayar') bg-secondary text-white @endif
                                             @if ($order->status == 'Menunggu Konfirmasi') bg-warning text-white @endif
                                             @if ($order->status == 'Terkonfirmasi') bg-info text-white @endif
@@ -58,18 +58,21 @@
                                     @endforeach
                                     <hr>
                                     <p>Total: Rp. {{ number_format($order->total) }}</p>
+                                    <p>Total Hari: {{ $day }}</p>
+                                    <p>Tanggal Harus Diambil: {{ date('d F Y', strtotime($order->start_date)) }}</p>
+                                    <p>Tanggal Harus Dikembalikan: {{ date('d F Y', strtotime($order->end_date)) }}</p>
                                     <hr>
                                     {{-- <div class="col-md-6"> --}}
-                                        <div class="input-group mb-3">
-                                            @if ($order->payment_receipt != null)
-                                                <div style="width: 200px;">
-                                                    <img src="{{ asset('storage/' . $order->payment_receipt) }}"
-                                                        class="img-fluid" alt="">
-                                                </div>
+                                    <div class="input-group mb-3">
+                                        @if ($order->payment_receipt != null)
+                                            <div style="width: 200px;">
+                                                <img src="{{ asset('storage/' . $order->payment_receipt) }}"
+                                                    class="img-fluid" alt="">
+                                            </div>
                                             {{-- @else --}}
-                                                {{-- <p class="text-info">No Photo</p> --}}
-                                            @endif
-                                        </div>
+                                            {{-- <p class="text-info">No Photo</p> --}}
+                                        @endif
+                                    </div>
                                     {{-- </div> --}}
                                 </div>
                                 <div class="row">
@@ -79,15 +82,24 @@
                                             <h5>Tidak Tersedia</h5>
                                         @endif
                                         @if ($order->status == 'Menunggu Konfirmasi')
-                                            <form action="{{ route('admin.order.confirm', $order) }}"
-                                                method="post">
+                                            <form action="{{ route('admin.order.confirm', $order) }}" method="post">
                                                 @csrf
                                                 <button class="btn btn-success" type="submit">Konfirmasi</button>
                                             </form>
                                         @endif
                                         @if ($order->status == 'Terkonfirmasi')
-                                            <form action="{{ route('admin.order.complete', $order) }}"
-                                                method="post">
+                                            @if ($date >= $order->start_date)
+                                                <form action="{{ route('admin.order.pickup', $order) }}" method="post">
+                                                    @csrf
+                                                    <button class="btn btn-success" type="submit">Pick Up</button>
+                                                </form>
+                                            @else
+                                                <button class="btn btn-success" type="submit" disabled>Pick Up</button>
+                                                <p class="text text-danger">Pesanan tidak dapat diambil sebelum tanggal {{ $order->start_date }}</p>
+                                            @endif
+                                        @endif
+                                        @if ($order->status == 'Dipick Up')
+                                            <form action="{{ route('admin.order.complete', $order) }}" method="post">
                                                 @csrf
                                                 <button class="btn btn-success" type="submit">Selesai</button>
                                             </form>

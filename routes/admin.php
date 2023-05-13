@@ -45,7 +45,8 @@ Route::middleware(AdminCheck::class)->group(function () {
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
         Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('edit');
-        Route::post('/order/{id}/confirm', [OrderController::class, 'confirm'])->name('confirm');
+        Route::post('/edit/{id}/confirm', [OrderController::class, 'confirm'])->name('confirm');
+        Route::post('/edit/{id}/pickup', [OrderController::class, 'pickup'])->name('pickup');
         Route::post('/edit/{id}/complete', [OrderController::class, 'complete'])->name('complete');
         Route::post('/destroy/{id}', [OrderController::class, 'destroy'])->name('destroy');
 

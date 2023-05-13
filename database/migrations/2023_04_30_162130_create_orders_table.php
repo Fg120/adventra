@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->enum('status', ['Belum Dibayar', 'Menunggu Konfirmasi', 'Terkonfirmasi', 'Selesai'])->default('Belum Dibayar');
+            $table->enum('status', ['Belum Dibayar', 'Menunggu Konfirmasi', 'Terkonfirmasi', 'Di Pick Up', 'Selesai'])->default('Belum Dibayar');
             $table->string('payment_receipt')->nullable();
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->unsignedBigInteger('total');

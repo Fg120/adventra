@@ -79,13 +79,16 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">stock True</span>
-                                                <input type="number" class="form-control"
-                                                    value="{{ old('stock_true') }}"placeholder="stock_true"
-                                                    name="stock_true">
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="basic-addon1">Kategori</span>
+                                                <select class="form-control" name="id_category" id="id_category">
+                                                    <option value="" selected>Pilih Kategori</option>
+                                                    @foreach ($categorys as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            @error('stock_true')
+                                            @error('id_category')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -98,20 +101,6 @@
                                                     name="photo">
                                             </div>
                                             @error('photo')
-                                                <p class="text-danger fs-6">{{ $message }}</p>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon1">Kategori</span>
-                                                <select class="form-control" name="id_category" id="id_category">
-                                                    <option value="" selected>Pilih Kategori</option>
-                                                    @foreach ($categorys as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            @error('id_category')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
                                             @enderror
                                         </div>

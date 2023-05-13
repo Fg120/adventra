@@ -28,14 +28,13 @@ class CartController extends Controller
             $request->validate([
                 'amount' => 'required|gte:1|lte:' . $products->stock_available,
             ]);
-    
+
             Cart::create([
                 'user_id' => $user_id,
                 'product_id' => $product_id,
                 'amount' => $request->amount,
             ]);
-        }
-        else {
+        } else {
             $request->validate([
                 'amount' => 'required|gte:1|lte:' . ($products->stock_available - $existing_cart->amount),
             ]);
@@ -52,10 +51,10 @@ class CartController extends Controller
     {
         $user_id = Auth::id();
         $carts = Cart::where('user_id', $user_id)->get();
-// dd($carts);
+        // dd($carts);
 
-        $date = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")+1, date("Y")));
-        $date_max = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d")+14, date("Y")));
+        $date = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d") + 1, date("Y")));
+        $date_max = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d") + 14, date("Y")));
 
         return view('home.show_cart', compact('carts', 'date', 'date_max'));
     }

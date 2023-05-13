@@ -57,7 +57,7 @@
                                                 <span class="input-group-text" id="basic-addon1">Deskripsi</span>
                                                 <div class="form-floating">
                                                     <textarea class="form-control" name="desc" value="" placeholder="Leave a comment here" id="floatingTextarea2"
-                                                        style="height: 100px">{{ $product->desc }}</textarea>
+                                                        style="height: 250px">{{ $product->desc }}</textarea>
                                                     <label for="floatingTextarea2">Deskripsi</label>
                                                 </div>
                                             </div>
@@ -79,13 +79,15 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">stock True</span>
-                                                <input type="number" class="form-control"
-                                                    value="{{ $product->stock_true }}" placeholder="stock_true"
-                                                    name="stock_true">
+                                            <div class="input-group">
+                                                <span class="input-group-text" id="basic-addon1">Kategori</span>
+                                                <select class="form-control" name="id_category" id="id_category">
+                                                    @foreach ($categorys as $item)
+                                                        <option value="{{$item->id}}" {{ ($item->id == $product->id_category) ? 'selected' : '' }}>{{$item->name}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                            @error('stock_true')
+                                            @error('id_category')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -114,19 +116,6 @@
                                                     <p class="text-info">No Photo</p>
                                                 @endif
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon1">Kategori</span>
-                                                <select class="form-control" name="id_category" id="id_category">
-                                                    @foreach ($categorys as $item)
-                                                        <option value="{{$item->id}}" {{ ($item->id == $product->id_category) ? 'selected' : '' }}>{{$item->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            @error('id_category')
-                                                <p class="text-danger fs-6">{{ $message }}</p>
-                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">

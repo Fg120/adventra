@@ -46,7 +46,6 @@ class ProductsController extends Controller
             'price' => 'required',
             'desc' => 'required',
             'stock_available' => 'required',
-            'stock_true' => 'required',
             'photo' => 'required',
             'id_category' => 'required',
         ], [
@@ -55,7 +54,6 @@ class ProductsController extends Controller
             'price.required' => 'Masukkan harga produk!',
             'desc.required' => 'Masukkan deskripsi produk!',
             'stock_available.required' => 'Masukkan Stock available produk!',
-            'stock_true.required' => 'Masukkan Stock true produk!',
             'photo.required' => 'Upload foto produk!',
             'id_category.required' => 'Pilih kategori produk!',
         ]);
@@ -74,7 +72,6 @@ class ProductsController extends Controller
                     'price' => $request->price,
                     'desc' => $request->desc,
                     'stock_available' => $request->stock_available,
-                    'stock_true' => $request->stock_true,
                     'photo' => $photo_path,
                     'id_category' => $request->id_category,
                 ];
@@ -85,18 +82,7 @@ class ProductsController extends Controller
             } catch (\Throwable $th) {
                 //throw $th;
             }
-        } 
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        }
     }
 
     /**
@@ -115,12 +101,12 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        if ($request->id_photo != '') {
-            Storage::delete('public/' . $product->id_photo);
-            $file = $request->file('id_photo');
+        if ($request->photo != '') {
+            Storage::delete('public/' . $product->photo);
+            $file = $request->file('photo');
             $filename = time() . '.' . $file->getClientOriginalExtension();
 
-            $photo_path = $request->file('id_photo')->storeAs('public/product/id', $filename);
+            $photo_path = $request->file('photo')->storeAs('public/product', $filename);
             //menghapus string 'public/' karena dapat menyulitkan pemanggilan di blade.
             $photo_path = str_replace('public/', '', $photo_path);
         }
@@ -129,10 +115,11 @@ class ProductsController extends Controller
         $product->desc = $request->desc;
         $product->price = $request->price;
         $product->stock_available = $request->stock_available;
-        $product->stock_true = $request->stock_true;
         $product->id_category = $request->id_category;
-        if ($request->id_photo != '') {
-            $product->id_photo = $photo_path;
+        if ($request->photo != '') {
+            Storage::delete('public/' . $product->photo);
+            $product->delete();
+            $product->photo = $photo_path;
         }
         $product->save();
 

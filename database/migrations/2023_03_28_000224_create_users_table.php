@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('nik')->nullable();
             $table->string('transaction_history')->nullable();
             $table->timestamps();
-            $table->enum('role', ['user', 'store', 'admin'])->default('user');
+            $table->enum('role', ['user', 'admin'])->default('user');
         });
     }
 

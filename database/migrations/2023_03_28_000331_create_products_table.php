@@ -20,7 +20,6 @@ return new class extends Migration
             $table->longText('desc');
             $table->string('photo');
             $table->string('stock_available');
-            $table->string('stock_true');
             $table->unsignedBigInteger('id_category')->nullable();
             $table->foreign('id_category')->references('id')->on('categorys');
             $table->timestamps();

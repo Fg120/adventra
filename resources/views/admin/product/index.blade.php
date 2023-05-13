@@ -37,7 +37,6 @@
                                                 <th class="sorting">Desc</th>
                                                 <th class="sorting">Price</th>
                                                 <th class="sorting">Stock Available</th>
-                                                <th class="sorting">Stock True</th>
                                                 <th class="sorting">Action</th>
                                             </tr>
                                         </thead>
@@ -53,7 +52,6 @@
                                                     </td>
                                                     <td>{{ $item->price }}</td>
                                                     <td>{{ $item->stock_available }}</td>
-                                                    <td>{{ $item->stock_true }}</td>
                                                     <td class="d-flex">
                                                         <a href="{{ route('admin.product.edit', $item->id) }}" type="button"
                                                             class="btn btn-primary me-3">Edit</a>
