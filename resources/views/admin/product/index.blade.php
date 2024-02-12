@@ -45,6 +45,7 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $item->name }}</td>
+                                                    {{-- <td>{{ $item->id_category }}</td> --}}
                                                     <td>{{ $item->fkCategory->name }}</td>
                                                     <td>
                                                         <span class="d-inline-block text-truncate"

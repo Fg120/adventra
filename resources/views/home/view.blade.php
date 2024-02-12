@@ -8,10 +8,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('storage/' . $products->photo) }}" class="rounded"
-                        alt="gambar produk {{ $products->name }}" style="height: 400px; object-fit: contain;">
+                <div class="col-sm-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('storage/' . $products->photo) }}" class="rounded" alt="gambar produk {{ $products->name }}" style="height: 400px; object-fit: contain;">
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                     <h1>{{ $products->name }}</h1>
@@ -55,12 +53,9 @@
                             <form action="{{ route('cart.create', $products) }}" method="post">
                                 @csrf
                                 <div class="input-group mb-3">
-                                    <input type="number" class="form-control" aria-describedby="basic-addon2"
-                                        name="amount" value=1 min=1>
+                                    <input type="number" class="form-control" aria-describedby="basic-addon2" name="amount" value=1 min=1>
                                     <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary"
-                                            {{ $products->stock_available <= '1' ? 'disabled' : '' }}
-                                            type="submit">Tambahkan</button>
+                                        <button class="btn btn-outline-secondary" {{ $products->stock_available <= '1' ? 'disabled' : '' }} type="submit">Tambahkan</button>
                                     </div>
                                 </div>
                                 @if ($products->stock_available <= 1)
@@ -73,4 +68,7 @@
             </div>
         </section>
     </main><!-- End #main -->
+    <script>
+        window.print();
+    </script>
 @endsection

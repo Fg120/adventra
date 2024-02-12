@@ -9,8 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $table= 'products';
-    protected $guarded= ['id'];
+    protected $table = 'products';
+    protected $fillable = ['id'];
 
     public function fkCategory()
     {

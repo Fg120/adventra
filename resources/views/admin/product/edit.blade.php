@@ -20,21 +20,27 @@
                                     <h3 class="card-title">Edit Product</h3>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-end flex-column">
-                                    <a href="{{ route('admin.product.index') }}" class="btn btn-primary">Kembali</a>
+                                    <a href="{{ route('admin.product.index') }}"
+                                       class="btn btn-primary">Kembali</a>
                                 </div>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <form action="{{ route('admin.product.update', $product->id) }}"
-                                    enctype="multipart/form-data" method="post">
+                                      enctype="multipart/form-data"
+                                      method="post">
                                     @csrf
                                     {{-- @method('PUT') --}}
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">Name</span>
-                                                <input type="text" class="form-control" placeholder="Name" name="name"
-                                                    value="{{ $product->name }}">
+                                                <span class="input-group-text"
+                                                      id="basic-addon1">Name</span>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       placeholder="Name"
+                                                       name="name"
+                                                       value="{{ $product->name }}">
                                             </div>
                                             @error('name')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
@@ -42,9 +48,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">Harga</span>
-                                                <input type="text" class="form-control" placeholder="Harga"
-                                                    name="price" value="{{ $product->price }}">
+                                                <span class="input-group-text"
+                                                      id="basic-addon1">Harga</span>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       placeholder="Harga"
+                                                       name="price"
+                                                       value="{{ $product->price }}">
                                             </div>
                                             @error('price')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
@@ -54,10 +64,15 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">Deskripsi</span>
+                                                <span class="input-group-text"
+                                                      id="basic-addon1">Deskripsi</span>
                                                 <div class="form-floating">
-                                                    <textarea class="form-control" name="desc" value="" placeholder="Leave a comment here" id="floatingTextarea2"
-                                                        style="height: 250px">{{ $product->desc }}</textarea>
+                                                    <textarea class="form-control"
+                                                              name="desc"
+                                                              value=""
+                                                              placeholder="Leave a comment here"
+                                                              id="floatingTextarea2"
+                                                              style="height: 250px">{{ $product->desc }}</textarea>
                                                     <label for="floatingTextarea2">Deskripsi</label>
                                                 </div>
                                             </div>
@@ -69,10 +84,13 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text" id="basic-addon1">Stock Available</span>
-                                                <input type="number" class="form-control"
-                                                    value="{{ $product->stock_available }}" placeholder="Stock_available"
-                                                    name="stock_available">
+                                                <span class="input-group-text"
+                                                      id="basic-addon1">Stock Available</span>
+                                                <input type="number"
+                                                       class="form-control"
+                                                       value="{{ $product->stock_available }}"
+                                                       placeholder="Stock_available"
+                                                       name="stock_available">
                                             </div>
                                             @error('stock_available')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
@@ -80,10 +98,14 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon1">Kategori</span>
-                                                <select class="form-control" name="id_category" id="id_category">
+                                                <span class="input-group-text"
+                                                      id="basic-addon1">Kategori</span>
+                                                <select class="form-control"
+                                                        name="id_category"
+                                                        id="id_category">
                                                     @foreach ($categorys as $item)
-                                                        <option value="{{$item->id}}" {{ ($item->id == $product->id_category) ? 'selected' : '' }}>{{$item->name}}</option>
+                                                        <option value="{{ $item->id }}"
+                                                                {{ $item->id == $product->id_category ? 'selected' : '' }}>{{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -95,9 +117,12 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon1">Foto Produk</span>
-                                                <input type="file" class="form-control" id="inputGroupFile04"
-                                                    name="photo">
+                                                <span class="input-group-text"
+                                                      id="basic-addon1">Foto Produk</span>
+                                                <input type="file"
+                                                       class="form-control"
+                                                       id="inputGroupFile04"
+                                                       name="photo">
                                             </div>
                                             @error('photo')
                                                 <p class="text-danger fs-6">{{ $message }}</p>
@@ -110,7 +135,8 @@
                                                 @if ($product->photo != null)
                                                     <div style="width: 200px;">
                                                         <img src="{{ asset('storage/' . $product->photo) }}"
-                                                            class="img-fluid" alt="">
+                                                             class="img-fluid"
+                                                             alt="">
                                                     </div>
                                                 @else
                                                     <p class="text-info">No Photo</p>
@@ -120,7 +146,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
+                                            <button type="submit"
+                                                    class="btn btn-primary">Simpan</button>
                                         </div>
                                     </div>
                                 </form>

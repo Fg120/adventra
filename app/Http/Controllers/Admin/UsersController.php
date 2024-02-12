@@ -129,6 +129,7 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
+
         if ($request->id_photo != '') {
             Storage::delete('public/' . $user->id_photo);
             $file = $request->file('id_photo');

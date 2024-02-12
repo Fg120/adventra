@@ -150,7 +150,7 @@ h6 {
 
 
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 
 .navbar {
@@ -281,7 +281,7 @@ h6 {
 
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 
 .mobile-nav-toggle {
@@ -961,10 +961,11 @@ section {
     margin-bottom: 20px;
 }
 
-.portfolio #portfolio-flters li {
+.portfolio #portfolio-flters div {
     cursor: pointer;
     display: inline-block;
-    margin: 10px 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
     font-size: 15px;
     font-weight: 500;
     line-height: 1;
@@ -975,9 +976,14 @@ section {
     font-family: "Poppins", sans-serif;
 }
 
-.portfolio #portfolio-flters li:hover,
-.portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-flters div:hover,
+.portfolio #portfolio-flters div.filter-active {
     background: #47b2e4;
+    color: #fff;
+}
+
+.portfolio #portfolio-flters div.filter-deactive {
+    background: #37517e;
     color: #fff;
 }
 

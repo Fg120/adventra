@@ -17,27 +17,30 @@
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>PRODUK</h2>
-                        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up"
+                        <ul id="portfolio-flters" class="justify-content-center row" data-aos="fade-up" data-aos-delay="100">
+                            <div data-filter="*" class="filter-active col-md-3 col-sm-5 col-10">All</div>
+                            @foreach ($categorys as $item)
+                                <div class="col-md-3 col-sm-5 col-10 filter-deactive" data-filter=".filter-{{ $item->id }}">{{ $item->name }}</div>
+                            @endforeach
+                        </ul>
+                        {{-- <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up"
                             data-aos-delay="100">
                             <li data-filter="*" class="filter-active">All</li>
                             @foreach ($categorys as $item)
                                 <li data-filter=".filter-{{ $item->id }}">{{ $item->name }}</li>
                             @endforeach
-                        </ul>
+                        </ul> --}}
 
                         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
                             @foreach ($products as $item)
                                 <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $item->id_category }}">
-                                    <div class="portfolio-img"><img src="{{ asset('storage/' . $item->photo) }}"
-                                            class="img-fluid" alt=""></div>
+                                    <div class="portfolio-img"><img src="{{ asset('storage/' . $item->photo) }}" class="img-fluid" alt=""></div>
                                     <div class="portfolio-info">
                                         <h4>{{ $item->name }}</h4>
                                         <p>{{ $item->fkCategory->name }}</p>
-                                        <a href="{{ asset('storage/' . $item->photo) }}" data-gallery="portfolioGallery"
-                                            class="portfolio-lightbox preview-link" title="{{ $item->name }}"><i
-                                                class="bx bx-plus"></i></a>
-                                        <a href="{{ route('home.view', $item->id) }}" class="details-link"
-                                            title="More Details"><i class="bx bx-link"></i></a>
+                                        <a href="{{ asset('storage/' . $item->photo) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ $item->name }}"><i
+                                               class="bx bx-plus"></i></a>
+                                        <a href="{{ route('home.view', $item->id) }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
                                     </div>
                                 </div>
                             @endforeach
