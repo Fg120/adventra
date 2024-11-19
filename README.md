@@ -8,6 +8,6 @@
 </p>
 
 ## Tentang Aventra
-Adventra merupakan hasil dari project kelompok yang berasal dari program Sekolah Beta Intensif yang diselenggarakan oleh Kemkominfo.
+Adventra adalah aplikasi web berbasis sistem penyewaan barang atau alat camping/adventure. Aplikasi ini dirancang untuk mempermudah pengguna dalam mencari, menyewa, dan mengelola kebutuhan alat-alat outdoor secara praktis dan efisien.
 
-projek ini jauh dari kata sempurna namun ini adalah kemampuan maksimal kami untuk mengerjakan dalam tenggat waktu tersebut.
+Proyek ini merupakan hasil kerja kelompok dalam program Sekolah Beta Intensif yang diselenggarakan oleh Kemkominfo selama 14 pertemuan. Adventra dirancang sebagai solusi inovatif untuk mendukung aktivitas petualangan dengan layanan penyewaan berbasis teknologi.
